@@ -1,6 +1,6 @@
 {
   "name": "peswaktlee-bizneset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "www:local": "cd apps/www && npm run www:local",
