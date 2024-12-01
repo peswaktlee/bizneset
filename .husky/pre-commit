@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run www:lint && npm run www:tsc && lerna version patch --no-push && git add .
+npm run www:lint && npm run www:tsc && git add .

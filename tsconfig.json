@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "paths": {
+            "~/*": [
+                "./*"
+            ]
+        }
+    }
+}
