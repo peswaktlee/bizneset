@@ -16,8 +16,8 @@ module.exports = {
         config.resolve.extensions.push('.ts', '.tsx')
 
         config.module.rules.push({
-        test: /\.tsx?$/,
-        use: [
+            test: /\.tsx?$/,
+            use: [
                 {
                     loader: 'babel-loader',
                     options: {
