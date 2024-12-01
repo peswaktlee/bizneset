@@ -23,6 +23,11 @@
         "moduleResolution": "node",
         "isolatedModules": true,
         "jsx": "preserve",
+        "typeRoots": [
+            "types",
+            "node_modules/@types",
+            "node"
+        ],
         "paths": {
             "~/*": [
                 "../../*"

@@ -1,9 +1,9 @@
 import type { FC, ReactNode } from 'react'
 
-const NotFound: FC = (): ReactNode => {
+const Terms: FC = (): ReactNode => {
     return (
         null
     )
 }
 
-export default NotFound
+export default Terms
