@@ -87,3 +87,6 @@ span {
   content: var(--placeholder-content, "");
   color: gray;
 }
+*{
+    color: #424290;
+}

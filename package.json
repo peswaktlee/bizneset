@@ -2,7 +2,13 @@
   "name": "bizneset",
   "private": true,
   "scripts": {
+    "app:dev": "cd apps/www && npm run dev",
+    "app:build": "cd apps/www && npm run build",
+    "app:start": "cd apps/www && npm run start",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
     "babel-loader": "^9.2.1",
