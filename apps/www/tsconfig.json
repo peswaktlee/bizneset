@@ -17,16 +17,18 @@
         "allowJs": true,
         "skipLibCheck": true,
         "strict": false,
+        "downlevelIteration": true,
         "noEmit": true,
         "incremental": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
         "module": "esnext",
         "moduleResolution": "node",
         "isolatedModules": true,
         "jsx": "preserve",
         "typeRoots": [
-            "types",
-            "node_modules/@types",
-            "node"
+            "../../ts",
+            "node_modules/@types"
         ],
         "paths": {
             "~/*": [
@@ -39,13 +41,14 @@
     },
     "include": [
         "next-env.d.ts",
+        "**/*.ts",
         "next.config.mjs",
         "**/*.ts",
         "**/*.tsx",
-        ".next/types/**/*.ts",
-        "next.configold.js"
+        ".next/types/**/*.ts"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        ".next"
     ]
 }

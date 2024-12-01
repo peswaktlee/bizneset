@@ -4,6 +4,7 @@ import type {
     RequestType 
 } from '~/ts'
 
+// @ts-ignore
 import { getAuth as Auth } from 'firebase/auth'
 import { DecodeRequest, EncodeRequest } from '~/helpers/http'
 import { Translation } from '~/helpers/generals'

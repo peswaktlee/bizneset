@@ -1,5 +1,6 @@
 import type { RequestProFunctionProps, RequestType } from '~/ts'
 
+// @ts-ignore
 import { getAuth as Auth } from 'firebase/auth'
 import { EncodeRequest } from '~/helpers/http'
 

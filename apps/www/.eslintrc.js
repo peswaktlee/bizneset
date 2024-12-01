@@ -2,7 +2,6 @@
 
 module.exports = {
   root: true,
-  extends: ["@repo/eslint-config/next.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
@@ -23,5 +22,5 @@ module.exports = {
     semi: ["error", "never"],
     "comma-dangle": ["error", "never"],
     "jsx-quotes": ["error", "prefer-single"],
-  },
-};
+  }
+}
