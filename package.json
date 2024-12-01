@@ -1,23 +1,17 @@
 {
   "name": "bizneset",
+  "version": "0.0.0",
   "private": true,
+  "packageManager": "bun@1.1.34",
   "scripts": {
-    "app:dev": "cd apps/www && npm run dev",
-    "app:build": "cd apps/www && npm run build",
-    "app:start": "cd apps/www && npm run start",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "dependencies": {
-    "tailwindcss": "^3.4.15"
+    "app:dev": "cd apps/www && next dev",
+    "app:build": "cd apps/www && next build",
+    "app:start": "cd apps/www && next start"
   },
   "devDependencies": {
-    "babel-loader": "^9.2.1",
-    "prettier": "3.3.3",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.7.2"
+    "prettier": "3.3.3"
   },
   "engines": {
     "node": ">=18"
-  },
-  "packageManager": "bun@1.1.34"
+  }
 }

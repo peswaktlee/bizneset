@@ -18,15 +18,15 @@ module.exports = {
         config.module.rules.push({
             test: /\.tsx?$/,
             use: [
-                {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            'next/babel', 
-                            '@babel/preset-typescript'
-                        ]
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                'next/babel', 
+                                '@babel/preset-typescript'
+                            ]
+                        }
                     }
-                }
             ]
         })
 

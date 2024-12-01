@@ -1,11 +1,5 @@
-import type { FC, ReactNode } from 'react'
-import { Translation } from '~/helpers/generals'
+import { type FC,type ReactNode } from 'react'
+import { Business } from '@/ui/pages'
 
-const Home: FC = (): ReactNode => {
-    return <h1>
-        {Translation('hello')}
-        j
-    </h1>
-}
-
+const Home: FC = (): ReactNode => <Business />
 export default Home
