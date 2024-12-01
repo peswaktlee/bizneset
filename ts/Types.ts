@@ -34,3 +34,8 @@ export type RequestProFunctionProps = {
     method: HttpMethodTypes
     body?: Record<string, unknown>
 }
+
+export type MetaTagsTypes = {
+    title?: TranslationKeys | undefined | string
+    index?: boolean
+}

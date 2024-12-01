@@ -1,4 +1,5 @@
-import { type NextConfig } from 'next'
+import type { NextConfig } from 'next'
+import { resolve } from 'path'
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
@@ -7,22 +8,21 @@ const nextConfig: NextConfig = {
             compilationMode: 'annotation'
         }
     },
-    async rewrites() {
-        return [
-            {
-                source: '/:path*',
-                destination: '/:path*.html'
-            }
-        ]
-    },
-    async redirects() {
-        return [
-            {
-                source: '/:path(.+).html',
-                destination: '/:path',
-                permanent: true
-            }
-        ]
+    webpack: (config) => {
+        config.resolve.modules.push(resolve(__dirname, '../../'))
+
+        config.module.rules.push({
+            test: /\.tsx?$/,
+            use: {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: true
+                }
+            },
+            exclude: /node_modules/
+        })
+
+        return config
     }
 }
 

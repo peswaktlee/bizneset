@@ -57,3 +57,10 @@ export const API_VERSIONS = {
 export const LANGUAGES = {
     ALBANIAN: 'sq_AL'
 }
+
+
+export const PUBLIC_PATHS = {
+    IMAGES: {
+        THUBNAIL: '/images/thumbnail.webp'
+    }
+}
