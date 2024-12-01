@@ -5,7 +5,8 @@
   "scripts": {
     "www:dev": "cd apps/www && bun run www:dev",
     "www:build": "cd apps/www && bun run www:build",
-    "www:start": "cd apps/www && bun run www:start"
+    "www:start": "cd apps/www && bun run www:start",
+    "www:tsc": "cd apps/www && bun run www:tsc"
   },
   "devDependencies": {
     "prettier": "3.3.3"

@@ -4,7 +4,8 @@
   "scripts": {
     "www:dev": "next dev --port 4400",
     "www:build": "next build",
-    "www:start": "next start --port 4400"
+    "www:start": "next start --port 4400",
+    "www:tsc": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.0.3",
