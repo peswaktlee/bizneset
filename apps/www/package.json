@@ -12,7 +12,8 @@
     "www:lint:fix": "eslint . --ext .ts,.tsx --fix",
     "www:unimported": "unimported",
     "www:knip": "knip",
-    "www:check": "npm run www:lint && npm run www:tsc"
+    "www:check": "npm run www:lint && npm run www:tsc",
+    "www:prepare": "husky install"
   },
   "dependencies": {
     "firebase": "^10.7.1",
@@ -36,6 +37,9 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "knip": "^5.38.3",
+    "unimported": "^1.31.1",
+    "husky": "^9.1.3"
   }
 }

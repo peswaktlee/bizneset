@@ -8,11 +8,9 @@
     "www:prod": "cd apps/www && npm run www:prod",
     "www:build": "cd apps/www && npm run www:build",
     "www:start": "cd apps/www && npm run www:start",
-    "www:tsc": "cd apps/www && npm run www:tsc"
+    "www:check": "cd apps/www && npm run www:check"
   },
   "devDependencies": {
-    "knip": "^5.38.3",
-    "prettier": "3.3.3",
-    "unimported": "^1.31.1"
+    "prettier": "3.3.3"
   }
 }
