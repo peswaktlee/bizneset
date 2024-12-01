@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
+        "noEmit": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "paths": {

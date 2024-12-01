@@ -27,7 +27,10 @@
             "~/*": [
                 "../../*"
             ],
-        },
+            "@/*": [
+                "./*"
+            ]
+        }
     },
     "include": [
         "next-env.d.ts",
@@ -35,7 +38,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "next.config.js"
+        "next.configold.js"
     ],
     "exclude": [
         "node_modules"
