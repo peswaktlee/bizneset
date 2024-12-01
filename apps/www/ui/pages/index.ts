@@ -3,11 +3,17 @@ import Business from '@/ui/pages/Business'
 import Businesses from '@/ui/pages/Businesses'
 import Error from '@/ui/pages/Error'
 import NotFound from '@/ui/pages/NotFound'
+import Privacy from '@/ui/pages/Privacy'
+import Saved from '@/ui/pages/Saved'
+import Terms from '@/ui/pages/Terms'
 
 export {
     Account,
     Business,
     Businesses,
     Error,
-    NotFound
+    NotFound,
+    Privacy,
+    Saved,
+    Terms
 }

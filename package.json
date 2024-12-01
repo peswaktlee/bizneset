@@ -1,14 +1,18 @@
 {
-  "name": "bizneset",
-  "version": "0.0.0",
+  "name": "peswaktlee-bizneset",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "www:dev": "cd apps/www && bun run www:dev",
-    "www:build": "cd apps/www && bun run www:build",
-    "www:start": "cd apps/www && bun run www:start",
-    "www:tsc": "cd apps/www && bun run www:tsc"
+    "www:local": "cd apps/www && npm run www:local",
+    "www:dev": "cd apps/www && npm run www:dev",
+    "www:prod": "cd apps/www && npm run www:prod",
+    "www:build": "cd apps/www && npm run www:build",
+    "www:start": "cd apps/www && npm run www:start",
+    "www:check": "cd apps/www && npm run www:check"
   },
   "devDependencies": {
-    "prettier": "3.3.3"
+    "prettier": "3.3.3",
+    "husky": "^9.1.3",
+    "typescript": "^5"
   }
 }
