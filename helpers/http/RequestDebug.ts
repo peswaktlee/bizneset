@@ -1,8 +1,6 @@
-import type { RequestProFunctionProps, RequestType } from '~/ts'
+import type { RequestProFunctionProps, RequestType } from '@/ts'
 
-// @ts-ignore
-import { getAuth as Auth } from 'firebase/auth'
-import { EncodeRequest } from '~/helpers/http'
+import { EncodeRequest } from '@/helpers/http'
 
 import { 
     SERVER_URL, 
@@ -10,7 +8,7 @@ import {
     ENV_MODES, 
     API_VERSIONS, 
     LANGUAGES 
-} from '~/constants'
+} from '@/data/constants'
 
 const RequestDebug = async (props: RequestProFunctionProps): Promise<void> => {
     try {
@@ -20,17 +18,13 @@ const RequestDebug = async (props: RequestProFunctionProps): Promise<void> => {
             body
         } = props
     
-        const auth = Auth()
-        const token = await auth.currentUser?.getIdToken() || ''
-
         const options: RequestType = {
             method,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Api-Language': LANGUAGES.ALBANIAN,
-                'Api-Version': API_VERSIONS.V1,
-                'Authorization': token
+                'Api-Version': API_VERSIONS.V1
             }
         }
     

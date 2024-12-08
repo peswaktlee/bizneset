@@ -1,4 +1,4 @@
-import { NotificationInterface, UserRoleTypes } from '~/ts'
+import { NotificationInterface, UserRoleTypes } from '@/ts'
 
 export interface UserInterface {
     _id: string
@@ -22,7 +22,8 @@ export interface AuthStateInterface {
     User: UserInterface | null | false
     Loading: boolean
     Error: boolean
-    SmallLoading
+    SmallLoading: boolean
+    UserModal: boolean
     SetAuthState: (payload: Partial<AuthStateInterface>) => void
 }
 
@@ -43,4 +44,18 @@ export interface RequestFunctionReturnProps {
     message: string
     code: number
     data: any
+}
+
+export interface CategoryInterface {
+    _id: string
+    Name: string
+    Businesses: number
+}
+
+
+export interface BusinessInterface {
+    _id: string
+    Name: string
+    Slug: string
+    Businesses: number
 }

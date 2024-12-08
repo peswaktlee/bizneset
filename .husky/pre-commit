@@ -1,11 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Run your checks
 npm run www:check
-
-# Increment the patch version
 npm version patch --no-git-tag-version
-
-# Add the updated files to git
 git add package.json package-lock.json

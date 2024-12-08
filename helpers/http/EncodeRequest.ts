@@ -1,4 +1,4 @@
-import { UNIVERSE } from '~/constants'
+import { UNIVERSE } from '@/data/constants'
 
 const EncodeRequest = (data: object) => {
     const key = UNIVERSE

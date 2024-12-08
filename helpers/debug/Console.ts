@@ -1,6 +1,6 @@
-import { RequestDebug } from '~/helpers/http'
-import { AuthState } from '~/apps/www/states'
-import { ENDPOINTS, LOG_TYPES, METHODS, USER_ROLES } from '~/constants'
+import { RequestDebug } from '@/helpers/http'
+import { AuthState } from '@/data/states'
+import { ENDPOINTS, LOG_TYPES, METHODS, USER_ROLES } from '@/data/constants'
 
 const URL = ENDPOINTS.DEBUG.LOG
 
