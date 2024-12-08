@@ -1,12 +1,14 @@
 import type { 
-    RequestFunctionProps, 
-    RequestFunctionReturnProps, 
+    RequestProFunctionProps, 
+    RequestFunctionReturnProps,
     RequestType 
-} from '~/ts'
+} from '@/ts'
 
 // @ts-ignore
 import { getAuth as Auth } from 'firebase/auth'
-import { DecodeRequest, EncodeRequest } from '~/helpers/http'
+import { DecodeRequest, EncodeRequest } from '@/helpers/http'
+import { Translation } from '@/helpers/generals'
+import { Console } from '@/helpers/debug'
 
 import { 
     SERVER_URL, 
@@ -14,39 +16,57 @@ import {
     ENV_MODES, 
     API_VERSIONS, 
     LANGUAGES 
-} from '~/constants'
+} from '@/data/constants'
 
-const Request = async (props: RequestFunctionProps): Promise<RequestFunctionReturnProps> => {
-    const {
-        path, 
-        method, 
-        signal,
-        body
-    } = props
+const Request = async (props: RequestProFunctionProps): Promise<RequestFunctionReturnProps> => {
+    let initalResponse = {
+        success: false,
+        message: Translation('something-went-wrong-while-trying-to-make-a-request'),
+        data: null,
+        code: 500
+    }
 
-    const auth = Auth()
-    const token = await auth.currentUser?.getIdToken() || ''
+    try {
+        const {
+            path, 
+            method, 
+            body
+        } = props
+    
+        const auth = Auth()
+        const token = await auth.currentUser?.getIdToken() || ''
 
-    const options: RequestType = {
-        method,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Api-Language': LANGUAGES.ALBANIAN,
-            'Api-Version': API_VERSIONS.V1,
-            'Authorization': token
+        const options: RequestType = {
+            method,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Api-Language': LANGUAGES.ALBANIAN,
+                'Api-Version': API_VERSIONS.V1,
+                'Authorization': token
+            }
+        }
+    
+        if (body) options['body'] = JSON.stringify(ENV_MODE === ENV_MODES.PRODUCTION ? EncodeRequest(body) : body)
+        else options['body'] = JSON.stringify({})
+    
+        try {
+            const request = await fetch(`${SERVER_URL}/${path}`, options as RequestInit)
+            const respone = await request.json()
+        
+            return DecodeRequest(respone) as RequestFunctionReturnProps
+        }
+
+        catch (error) {
+            Console.Error('RequestProFetch', error)
+            return initalResponse
         }
     }
 
-    if (signal) options['signal'] = signal
-    
-    if (body) options['body'] = JSON.stringify(ENV_MODE === ENV_MODES.PRODUCTION ? EncodeRequest(body) : body)
-    else options['body'] = JSON.stringify({})
-
-    const request = await fetch(`${SERVER_URL}/${path}`, options as RequestInit)
-    const respone = await request.json()
-
-    return DecodeRequest(respone) as RequestFunctionReturnProps
+    catch (error) {
+        Console.Error('Request', error)
+        return initalResponse
+    }
 }
 
 export default Request

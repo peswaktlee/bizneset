@@ -1,18 +1,48 @@
 {
-  "name": "peswaktlee-bizneset",
-  "version": "0.0.2",
+  "name": "bizneset-www",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "www:local": "cd apps/www && npm run www:local",
-    "www:dev": "cd apps/www && npm run www:dev",
-    "www:prod": "cd apps/www && npm run www:prod",
-    "www:build": "cd apps/www && npm run www:build",
-    "www:start": "cd apps/www && npm run www:start",
-    "www:check": "cd apps/www && npm run www:check"
+    "www:local": "npm run www:check && env-cmd -f .env.local next dev --port 4400",
+    "www:dev": "npm run www:check && env-cmd -f .env.dev next dev --port 4400",
+    "www:prod": "npm run www:check && env-cmd -f .env.prod next dev --port 4400",
+    "www:build": "npm run www:check && next build",
+    "www:start": "next start --port 4400",
+    "www:tsc": "tsc --noEmit",
+    "www:lint": "eslint . --ext .ts,.tsx",
+    "www:lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "www:unimported": "unimported",
+    "www:knip": "knip",
+    "www:check": "npm run www:lint && npm run www:tsc"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
+    "firebase": "^10.7.1",
+    "moment-timezone": "^0.5.45",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-firebase-hooks": "^5.1.1",
+    "react-infinite-scroll-hook": "^4.1.1",
+    "tailwind-merge": "^2.5.5",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "prettier": "3.3.3",
-    "husky": "^9.1.3",
-    "typescript": "^5"
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/node": "^20.17.9",
+    "@types/react": "18.3.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "@types/react-dom": "18.3.0",
+    "babel-plugin-react-compiler": "^19.0.0-beta-0dec889-20241115",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "autoprefixer": "^10.0.1",
+    "knip": "^5.38.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5",
+    "unimported": "^1.31.1"
   }
 }

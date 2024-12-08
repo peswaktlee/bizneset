@@ -1,4 +1,4 @@
-import { UNIVERSE } from '~/constants'
+import { UNIVERSE } from '@/data/constants'
 
 const DecodeRequest = (encoded: string) => {
     if (typeof encoded === 'string') {
