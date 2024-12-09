@@ -1,17 +1,15 @@
 import type { FC, ReactNode } from 'react'
 import type { CategoryInterface } from '@/ts'
 
-import { Link } from '@/data/constants'
+import { Link, PATHS } from '@/data/constants'
 import { BriefcaseIcon } from '@heroicons/react/24/outline'
 
-const Category: FC<CategoryInterface> = (props): ReactNode => {
-    const { Name } = props
-
-    const isActive = true
+const Category: FC<CategoryInterface & { isActive: boolean }> = (props): ReactNode => {
+    const { Name, isActive } = props
 
     return (
         <Link 
-            href={`/kategorite/${Name}`} 
+            href={`/${PATHS.CATEGORIES}/${Name}`} 
             className='hover:cursor-pointer relative flex flex-col items-center justify-center gap-2 rounded-lg shadow-sm h-atuo hover:opacity-80 transition-all duration-500'
         >
             <div>

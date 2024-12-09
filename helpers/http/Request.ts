@@ -4,7 +4,6 @@ import type {
     RequestType 
 } from '@/ts'
 
-// @ts-ignore
 import { getAuth as Auth } from 'firebase/auth'
 import { DecodeRequest, EncodeRequest } from '@/helpers/http'
 import { Translation } from '@/helpers/generals'
@@ -34,7 +33,7 @@ const Request = async (props: RequestProFunctionProps): Promise<RequestFunctionR
         } = props
     
         const auth = Auth()
-        const token = await auth.currentUser?.getIdToken() || ''
+        const token = await auth?.currentUser?.getIdToken() || ''
 
         const options: RequestType = {
             method,

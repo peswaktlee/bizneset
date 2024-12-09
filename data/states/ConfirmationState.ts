@@ -26,8 +26,8 @@ const ConfirmationState = create(
             return ConfirmationInitialState
         },
         {
-            name: STATES.CONFIRMATION,
-            store: STATES.CONFIRMATION,
+            name: STATES.CATEGORIES,
+            store: STATES.CATEGORIES,
             enabled: ENV_MODES.DEV === ENV_MODE
         }
     ),
