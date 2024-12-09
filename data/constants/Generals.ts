@@ -6,6 +6,34 @@ export const DEFAULT_AUTH_STATE = {
     UserModal: false
 }
 
+const DEFAULT_BUSINESSES_FILTERS = {
+    Term: '',
+    Category: null,
+    City: null,
+    Country: null
+}
+
+export const DEFAULT_BUSINESSES_STATE = {
+    Businesses: [],
+    Filters: DEFAULT_BUSINESSES_FILTERS,
+    Loading: true,
+    Error: false,
+    Reference: null,
+    HasMore: true
+}
+
+export const DEFAULT_CATEGORIES_STATE = {
+    Categories: [],
+    Loading: true,
+    Error: false
+}
+
+export const DEFAULT_BUSINESS_STATE = {
+    Business: null,
+    Loading: true,
+    Error: false
+}
+
 export const USER_ROLES = {
     ADMIN: 'admin',
     USER: 'user'
@@ -19,7 +47,10 @@ export const ENV_MODES = {
 export const STATES = {
     USER: 'UserState',
     NOTIFICATION: 'NotificationState',
-    CONFIRMATION: 'ConfirmationState'
+    CONFIRMATION: 'ConfirmationState',
+    BUSINESSES: 'BusinessesState',
+    BUSINESS: 'BusinessState',
+    CATEGORIES: 'CategoriesState'
 }
 
 export const DEFAULT_NOTIFICATION_STATE = {
@@ -43,10 +74,13 @@ export const LOG_TYPES = {
 
 export const ENDPOINTS = {
     DEBUG: {
-        LOG: '/debug/log'
+        LOG: 'debug/insert-log'
     },
     USERS: {
-        AUTH: '/users/auth'
+        AUTH: 'users/auth-user'
+    },
+    CATEGORIES: {
+        LIST_CATEGORIES: 'categories/list-categories'
     }
 }
 
@@ -70,5 +104,6 @@ export const PATHS = {
     HOME: '/',
     ACCOUNT: 'llogaria',
     BUSINESSES: 'bizneset',
-    SAVED: 'te-ruajturat'
+    SAVED: 'te-ruajturat',
+    CATEGORIES: 'kategorite'
 }

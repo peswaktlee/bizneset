@@ -44,18 +44,18 @@ export type MetaTagsTypes = {
     index?: boolean
 }
 
-export type RootLayout = Readonly<{
+export type RootLayout = {
     children: React.ReactNode
-}>
+}
 
-export type NormalLayoutTypes = Readonly<{
+export type NormalLayoutTypes = {
     children: ReactNode
-}>
+}
 
-export type IconComponentProps = Readonly<{
+export type IconComponentProps = {
     size?: string
     className?: string
-}>
+}
 
 export type ButtonComponentProps = {
     children?: ReactNode | string
@@ -75,11 +75,15 @@ export type ButtonComponentProps = {
     id?: string | null
 }
 
-export type UserDropdownListItemType = Readonly<{
+export type UserDropdownListItemType = {
     href: string,
     name: TranslationKeys,
     onClick: (event: MouseEvent<HTMLAnchorElement>) => void
     isActive: boolean
     onlyAdmin: boolean
     icon: ReactNode
-}>
+}
+
+export type LoadingReference = {
+    current: boolean
+}

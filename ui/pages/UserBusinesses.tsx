@@ -1,12 +1,13 @@
 import type { FC, ReactNode } from 'react'
+
 import { NormalLayout } from '@/ui/layouts'
 
-const Business: FC = (): ReactNode => {
+const UserBusinesses: FC = (): ReactNode => {
     return (
         <NormalLayout>
-            <h1>Business</h1>
+            UserBusinesses
         </NormalLayout>
     )
 }
 
-export default Business
+export default UserBusinesses
