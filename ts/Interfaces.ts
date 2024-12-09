@@ -27,6 +27,37 @@ export interface AuthStateInterface {
     SetAuthState: (payload: Partial<AuthStateInterface>) => void
 }
 
+export type BusinessesFilters = {
+    Term: string
+    Category: null | string
+    City: null | string
+    Country: null | string
+}
+
+export interface BusinessesStateInterface {
+    Businesses: Array<BusinessInterface>
+    Filters: BusinessesFilters
+    Loading: boolean
+    Error: boolean
+    Reference: null | string
+    HasMore: boolean
+    SetBusinessesState: (payload: Partial<BusinessesStateInterface>) => void
+}
+
+export interface BusinessStateInterface {
+    Business: BusinessInterface | null
+    Loading: boolean
+    Error: boolean
+    SetBusinessState: (payload: Partial<BusinessStateInterface>) => void
+}
+
+export interface CategoriesStateInterface {
+    Categories: Array<CategoryInterface>
+    Loading: boolean
+    Error: boolean
+    SetCategoriesState: (payload: Partial<CategoriesStateInterface>) => void
+}
+
 export interface NotificationStateInterface {
     Notifications: Array<NotificationInterface>
     Notification: (notification: string) => void

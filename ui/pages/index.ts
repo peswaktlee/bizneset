@@ -6,6 +6,7 @@ import NotFound from '@/ui/pages/NotFound'
 import Privacy from '@/ui/pages/Privacy'
 import Saved from '@/ui/pages/Saved'
 import Terms from '@/ui/pages/Terms'
+import UserBusinesses from '@/ui/pages/UserBusinesses'
 
 export {
     Account,
@@ -15,5 +16,6 @@ export {
     NotFound,
     Privacy,
     Saved,
-    Terms
+    Terms,
+    UserBusinesses
 }

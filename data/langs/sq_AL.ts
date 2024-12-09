@@ -4,7 +4,11 @@ const sq_AL = {
     'something-went-wrong-while-trying-to-make-a-request': 'Diçka shkoi keq gjatë kërkesës së bërë! Ju lutem provoni përsëri.',
     'application-error': 'Diçka shkoi keq gjatë inicializimit të aplikacionit! Ju lutem provoni përsëri.',
     'something-went-wrong-while-trying-to-authenticate-user': 'Diçka shkoi keq gjatë autentifikimit të përdoruesit! Ju lutem provoni përsëri.',
-    'sign-in-with-google': 'Hyni me Google'
+    'sign-in-with-google': 'Hyni me Google',
+    'categories-error-title': 'Kategoritë nuk u gjetën!',
+    'categories-error-description': 'Diçka shkoi keq gjatë marrjes së kategorive, ju lutem provoni përsëri më vonë.',
+    'categories-empty-title': 'Nuk ka kategori!',
+    'categories-empty-description': 'Nuk u gjetën kategori për t\'u shfaqur, ju lutem shtoni disa kategori për të vazhduar.'
 }
 
 export default sq_AL
