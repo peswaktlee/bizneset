@@ -4,7 +4,7 @@ import type { BusinessInterface } from '@/ts'
 import { Link, PATHS } from '@/data/constants'
 
 const Business: FC<BusinessInterface> = (props): ReactNode => {
-    const { Name, Slug } = props
+    const { Name, Slug, Image } = props
 
     return (
         <Link 
@@ -12,7 +12,7 @@ const Business: FC<BusinessInterface> = (props): ReactNode => {
             className='hover:cursor-pointer relative flex flex-col items-center justify-center gap-2 hover:opacity-80 transition-all duration-500'
         >
             <img
-                src='https://via.placeholder.com/150'
+                src={Image}
                 alt={Name}
                 className='rounded-lg w-full h-64 object-cover'
             />

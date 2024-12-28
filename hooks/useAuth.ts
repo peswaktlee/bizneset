@@ -55,7 +55,7 @@ const useAuth = () => {
                 })
     
                 else {
-                    Notification(message)
+                    Notification.Error(message)
 
                     await UserLogout()
                     if (code === 401) SetAuthState({ SmallLoading: false })
@@ -64,13 +64,13 @@ const useAuth = () => {
     
             else {
                 await UserLogout()
-                Notification(Translation('something-went-wrong-while-trying-to-authenticate-user'))
+                Notification.Error(Translation('something-went-wrong-while-trying-to-authenticate-user'))
             }
         }
 
         else {
             await UserLogout()
-            Notification(Translation('something-went-wrong-while-trying-to-authenticate-user'))
+            Notification.Error(Translation('something-went-wrong-while-trying-to-authenticate-user'))
         }
     }
 

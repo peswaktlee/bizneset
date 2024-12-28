@@ -17,7 +17,6 @@ const Categories: FC = (): ReactNode => {
             <Error />
             <Empty />
             <Loading />
-            <Error />
         </div>
     )
 }

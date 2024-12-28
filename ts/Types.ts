@@ -1,22 +1,24 @@
-import { CSSProperties, ReactNode, MouseEvent } from 'react'
-
-import { METHODS } from 'http'
+import type { CSSProperties, ReactNode, MouseEvent } from 'react'
+import type { METHODS } from 'http'
 
 import { sq_AL } from '@/data/langs'
-import { USER_ROLES } from '@/data/constants/Generals'
+import { USER_ROLES, NOTIFICATION_TYPES, BUTTON_TYPES } from '@/data/constants'
 
 export type TranslationKeys = keyof typeof sq_AL
 export type TranslationTypes = typeof sq_AL
 
 export type UserRoleTypes = (typeof USER_ROLES)[keyof typeof USER_ROLES]
 export type HttpMethodTypes = (typeof METHODS)[keyof typeof METHODS]
+export type NotificationTypes = (typeof NOTIFICATION_TYPES)[keyof typeof NOTIFICATION_TYPES]
+export type ButtonTypes = (typeof BUTTON_TYPES)[keyof typeof BUTTON_TYPES]
 
 export type RouterPathFunctionType = (path: string) => void
 
 export type NotificationInterface = {
     Id: number
     Title: string
-    Count: number
+    Count: number,
+    Type: NotificationTypes
 }
 
 export type RequestFunctionProps = {
@@ -50,6 +52,7 @@ export type RootLayout = {
 
 export type NormalLayoutTypes = {
     children: ReactNode
+    className?: string
 }
 
 export type IconComponentProps = {
@@ -62,6 +65,7 @@ export type ButtonComponentProps = {
     className?: string
     disabled?: boolean
     target?: '_blank'
+    tabIndex?: number
     iconClassName?: string | undefined
     href?: string | undefined
     element?: 'button' | 'span'
@@ -70,7 +74,7 @@ export type ButtonComponentProps = {
     onClick?: Function | undefined
     style?: CSSProperties
     download?: boolean
-    type: 'primary' | 'secondary' | 'action'
+    type?: ButtonTypes
     onEnter?: Function | undefined
     id?: string | null
 }
@@ -86,4 +90,9 @@ export type UserDropdownListItemType = {
 
 export type LoadingReference = {
     current: boolean
+}
+
+export type HandleColorsFunctionsReturnTypes = {
+    bg: string
+    color: string
 }

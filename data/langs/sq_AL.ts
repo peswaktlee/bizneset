@@ -8,7 +8,14 @@ const sq_AL = {
     'categories-error-title': 'Kategoritë nuk u gjetën!',
     'categories-error-description': 'Diçka shkoi keq gjatë marrjes së kategorive, ju lutem provoni përsëri më vonë.',
     'categories-empty-title': 'Nuk ka kategori!',
-    'categories-empty-description': 'Nuk u gjetën kategori për t\'u shfaqur, ju lutem shtoni disa kategori për të vazhduar.'
+    'join-waitlist': 'Bashkohu listës së pritjes për njoftime të hershme për platformën e bizneseve.',
+    'auth-with-google': 'Regjistrohu me Google',
+    'categories-empty-description': 'Nuk u gjetën kategori për t\'u shfaqur, ju lutem shtoni disa kategori për të vazhduar.',
+    'join-the-waitlist': 'Bashkohu listës së pritjes',
+    'cancel': 'Anulo',
+    'confirm': 'Konfirmo',
+    'logout': 'Dilni nga llogaria',
+    'you-are-in-waitlist': 'Ju jeni në listën e pritjes!'
 }
 
 export default sq_AL

@@ -15,8 +15,6 @@ export default function Document() {
             <body className='h-full'>
                 <Main />
                 <NextScript />
-
-                <script async src='https://cdn.tailwindcss.com'></script>
             </body>
         </Html>
     )
