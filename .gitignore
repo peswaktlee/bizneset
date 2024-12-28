@@ -6,8 +6,8 @@
 .yarn/install-state.gz
 /coverage
 /.next/
-.env.local
 .env.prod
+.env.dev
 /out/
 /build
 .DS_Store

@@ -10,7 +10,8 @@ const site_name = Translation('app-name')
 const site_description = Translation('app-description')
 
 const SEO: FC<MetaTagsTypes> = (props): ReactNode => {
-    const { title, index = true } = props
+    // const { title, index = true } = props
+    const { title } = props
 
     const site_title = title ? `${title} - ${site_name}` : site_name
 
@@ -26,7 +27,9 @@ const SEO: FC<MetaTagsTypes> = (props): ReactNode => {
             <meta property='og:image' content={PUBLIC_PATHS.IMAGES.THUBNAIL} />
             <meta name='viewport' content='width=device-width, user-scalable=no' />
 
-            {index === false && <meta name='robots' content='noindex, nofollow' />}
+            <meta name='robots' content='noindex, nofollow' />
+
+            {/* {index === false && <meta name='robots' content='noindex, nofollow' />} */}
         </Head>
     )
 }

@@ -27,8 +27,6 @@ const UserAuth: FC = (): ReactNode => {
 
     if (User === false && !Loading && !SmallLoading) return (
         <div className='w-full flex items-center'>
-           
-
             <Button
                 type='secondary'
                 className='bg-gray-50 border border-gray-200 relative text-sm w-10 h-10 rounded-xl md:mr-0'

@@ -9,72 +9,96 @@ const ListOfBusinesses: Array<BusinessInterface> = [
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Teknologji',
         Slug: 'teknologji',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Ushqim',
         Slug: 'ushqim',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Dyqane',
         Slug: 'dyqane',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Shëndet',
         Slug: 'shëndet',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Argëtim',
         Slug: 'argëtim',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Edukim',
         Slug: 'edukim',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Name: 'Financë',
         Slug: 'financë',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Slug: 'patundshmeri',
         Name: 'Patundshmëri',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Slug: 'turizem',
         Name: 'Turizëm',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Slug: 'automobilistike',
         Name: 'Automobilistikë',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Slug: 'ojq',
         Name: 'OJQ',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     },
     {
         _id: Math.random().toString(36).substr(2, 9),
         Slug: 'te-tjera',
         Name: 'Të Tjera',
+        Image: 'https://via.placeholder.com/150',
+        Gallery: [],
         Businesses: 5
     }
 ]

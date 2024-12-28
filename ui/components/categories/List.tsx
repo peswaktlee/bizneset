@@ -5,6 +5,7 @@ import { Fragment } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { BusinessesState, CategoriesState } from '@/data/states'
 import { Category } from '@/ui/components/categories'
+import { DEFAULT_CATEGORY } from '@/data/constants'
 
 const List: FC = (): ReactNode => {
     const { Filters } = BusinessesState(
@@ -33,9 +34,12 @@ const List: FC = (): ReactNode => {
         )
     )
 
+
     if (!Error && !Loading && Categories?.length !== 0) return (
         <div className='box-content relative overflow-x-auto overflow-y-hidden'>
             <div className='flex space-x-12'>
+                <Category {...DEFAULT_CATEGORY} isActive={true} />
+
                 {
                     Categories.map((category: CategoryInterface, index) => {
                         const isActive = Filters?.Category === category._id
