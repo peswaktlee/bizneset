@@ -1,3 +1,5 @@
+import type { User } from 'firebase/auth'
+
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { Translation } from '@/helpers/generals'
 import { NotificationState, AuthState } from '@/data/states'
@@ -17,7 +19,7 @@ const AuthInvoke = async (push: Function) => {
             const FirebaseProvider = new GoogleAuthProvider()
     
             const result = await signInWithPopup(FirebaseAuth, FirebaseProvider)
-            const user: any = result.user
+            const user: User = result?.user
     
             if (user) {
                 const response = await Request({
@@ -45,7 +47,7 @@ const AuthInvoke = async (push: Function) => {
                     })
             
                     else {
-                        Notification(message)
+                        Notification.Error(message)
 
                         await UserLogout()
 
@@ -70,7 +72,7 @@ const AuthInvoke = async (push: Function) => {
             // @ts-ignore
             const message = error?.message || error
             
-            if (!message.includes('popup-closed-by-user')) Notification(Translation('something-went-wrong-while-trying-to-authenticate-user'))
+            if (!message.includes('popup-closed-by-user')) Notification.Error(Translation('something-went-wrong-while-trying-to-authenticate-user'))
             
             await UserLogout()
 

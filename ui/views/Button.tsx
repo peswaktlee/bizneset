@@ -1,15 +1,16 @@
 import type { FC, MouseEvent, ReactNode } from 'react'
 import type { ButtonComponentProps } from '@/ts'
 
-import { Tw, Link } from '@/data/constants'
 import { LoadingIcon } from '@/ui/icons'
+import { BUTTON_TYPES, Link, Tw } from '@/data/constants'
 
 const Button: FC<ButtonComponentProps> = (props): ReactNode => {
     const {
-        type,
+        type = BUTTON_TYPES.PRIMARY,
         children,
         className,
         href,
+        tabIndex,
         target,
         iconClassName,
         disabled,
@@ -22,6 +23,16 @@ const Button: FC<ButtonComponentProps> = (props): ReactNode => {
         onEnter,
         id = null
     } = props
+
+    const HandleButtonClass = () => {
+        let className = 'py-[5px] flex items-center justify-center font-medium gap-1.5 text-[14px] px-2.5 rounded-md focus:ring-2 focus:ring-[#B5D4FF] focus:border-white focus:border-none border-0 focus:ring-offset-1 focus:outline-none outline-none transition-all ease-in-out duration-500'
+
+        if (type === BUTTON_TYPES.PRIMARY) className = className + ' border-[#006BFF] bg-[#006BFF] hover:bg-[#2681ff] hover:border-[#2681ff] text-white focus:ring-[#B5D4FF] focus:border-white'
+        if (type === BUTTON_TYPES.SECONDARY) className = className + ' text-gray-500 bg-gray-50 hover:bg-gray-100'
+        if (type === BUTTON_TYPES.ACTION) className = className + ' bg-white w-auto shadow-md text-[12px] text-black border border-gray-50 hover:bg-[#f7f7f7]'
+
+        return className
+    }
 
     const HandleClickLink = (event: MouseEvent<HTMLAnchorElement>) => {
         if (event) event.currentTarget.blur()
@@ -40,12 +51,12 @@ const Button: FC<ButtonComponentProps> = (props): ReactNode => {
     if (href && target === '_blank') return (
         <a
             id={id || ''}
-            tabIndex={-1}
+            tabIndex={tabIndex || loading || disabled ? -1 : 0}
             href={href}
             onClick={HandleClickLink}
             style={style}
             download={download ? 'true' : undefined}
-            className={Tw(type === 'primary' ? 'select-none flex items-center gap-1.5 justify-center px-4 py-2 text-[14px] w-auto font-medium text-white bg-[#292929] hover:bg-zinc-700 rounded-full border-0 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:ring-0' : 'select-none flex items-center gap-1.5 justify-center w-full px-4 py-2 text-[14px] font-medium text-gray-500 bg-gray-50 rounded-full md:w-auto border-0 hover:bg-gray-100 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:ring-0', className)}
+            className={Tw(HandleButtonClass(), className)}
         >
             {loading && <LoadingIcon className={iconClassName || 'w-4 h-4'} />}
             {(icon && !loading) && icon}
@@ -56,11 +67,11 @@ const Button: FC<ButtonComponentProps> = (props): ReactNode => {
     if (href) return (
         <Link
             id={id || ''}
-            tabIndex={-1}
+            tabIndex={tabIndex || loading || disabled ? -1 : 0}
             href={href}
             onClick={HandleClickLink}
             style={style}
-            className={Tw(type === 'primary' ? 'select-none flex items-center gap-1.5 justify-center px-4 py-2 text-[14px] w-auto font-medium bg-[#292929] hover:bg-zinc-700 text-white rounded-full border-0 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:ring-0 focus:border-white' : 'select-none flex items-center gap-1.5 justify-center w-full px-4 py-2 text-[14px] font-medium text-gray-500 bg-gray-50 rounded-full md:w-auto border-0 hover:bg-gray-100 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:0', className)}
+            className={Tw(HandleButtonClass(), className)}
         >
             {loading && <LoadingIcon className={iconClassName || 'w-4 h-4'} />}
             {(icon && !loading) && icon}
@@ -71,11 +82,11 @@ const Button: FC<ButtonComponentProps> = (props): ReactNode => {
     return (
         <Element
             id={id || ''}
-            tabIndex={-1}
+            tabIndex={tabIndex || loading || disabled ? -1 : 0}
             disabled={disabled}
             onClick={HandleClickButton}
             style={style}
-            className={Tw(type === 'primary' ? 'select-none flex items-center gap-1.5 justify-center px-4 py-2 text-[14px] w-auto  font-medium bg-[#292929] hover:bg-zinc-600 text-white rounded-full border-0 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:ring-2 focus:ring-offset-1 focus:ring-[#1a1a1a] focus:border-white' : type === 'secondary' ? 'select-none flex items-center gap-1.5 justify-center w-full px-4 py-2 text-[14px] font-medium text-gray-500 bg-gray-50 rounded-full md:w-auto border-0 hover:bg-gray-100 focus:outline-none outline-none transition-all ease-in-out duration-500 focus:ring-0' : 'select-none gap-1.5 whitespace-nowrap flex shadow-md items-center justify-center bg-white w-full py-[5px] px-1.5 text-[12px] text-black rounded-md outline-none border border-gray-50 hover:bg-[#f7f7f7] focus:outline-none font-medium transition-all ease-in-out duration-500', className)}
+            className={Tw(HandleButtonClass(), className)}
             onKeyDownCapture={(event) => {
                 if (event.key === 'Enter' && onEnter) onEnter()
             }}

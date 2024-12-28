@@ -1,5 +1,7 @@
+export const NOTIFICATION_DURATION = 3000
+
 export const DEFAULT_AUTH_STATE = {
-    Loading: false,
+    Loading: true,
     User: null,
     Error: false,
     SmallLoading: false,
@@ -93,7 +95,6 @@ export const LANGUAGES = {
     ALBANIAN: 'sq_AL'
 }
 
-
 export const PUBLIC_PATHS = {
     IMAGES: {
         THUBNAIL: '/images/thumbnail.webp'
@@ -106,4 +107,43 @@ export const PATHS = {
     BUSINESSES: 'bizneset',
     SAVED: 'te-ruajturat',
     CATEGORIES: 'kategorite'
+}
+
+export const CATEGORIES_PATHS = {
+    ALL: 'te-gjitha',
+    TECH: 'teknologji',
+    FOOD: 'ushqimore',
+    STORE: 'dyqane',
+    HEALTH: 'shendet',
+    FUN: 'argetim',
+    EDUCATION: 'edukim',
+    BUSINESS: 'patundshmeri',
+    FINANCE: 'finance',
+    TOURISM: 'turizem',
+    AUTO: 'auto',
+    OJQ: 'ojq',
+    OTHER: 'te-tjera'
+}
+
+export const DEFAULT_CATEGORY = {
+    _id: '',
+    Name: 'Të Gjitha',
+    Slug: 'te-gjitha',
+    Businesses: 0,
+    Position: 0,
+    Created_At: new Date(),
+    Updated_At: null
+}
+
+export const NOTIFICATION_TYPES = {
+    SUCCESS: 'success',
+    ERROR: 'error',
+    INFO: 'info',
+    WARNING: 'warning'
+}
+
+export const BUTTON_TYPES = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    ACTION: 'action'
 }
