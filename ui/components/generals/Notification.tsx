@@ -50,7 +50,7 @@ const Notification: FC = (): ReactNode => {
     }
 
     return (
-        <div className='absolute transform right-6 bottom-6 flex flex-col gap-2 z-[999999999]'>
+        <div className='absolute transform right-12 bottom-12 md:right-4 md:bottom-4 flex flex-col gap-2 z-[999999999]'>
             {Notifications?.slice(-5)?.map((notification: NotificationInterface) => {
                 const { 
                     Id, 
