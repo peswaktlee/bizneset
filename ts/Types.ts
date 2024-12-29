@@ -52,7 +52,6 @@ export type RootLayout = {
 
 export type NormalLayoutTypes = {
     children: ReactNode
-    className?: string
 }
 
 export type IconComponentProps = {
