@@ -7,6 +7,7 @@
   backface-visibility: hidden !important;
   user-select: none !important;
   font-family: "DM Sans", sans-serif !important;
+  line-height: 100% !important;
 }
 
 body {
