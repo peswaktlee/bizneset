@@ -1,7 +1,7 @@
-import Analytics from '@/ui/tools/Analytics'
+import Scripts from '@/ui/tools/Scripts'
 import SEO from '@/ui/tools/SEO'
 
 export {
-    Analytics,
+    Scripts,
     SEO
 }

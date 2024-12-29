@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react'
 
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useShallow } from 'zustand/react/shallow'
 import { CircleBig, CircleSmall } from '@/ui/illustrations'
@@ -26,7 +27,27 @@ const Auth: FC = (): ReactNode => {
             }
         })
     )
+
+    const [isLandscape, setIsLandscape] = useState(false)
+
+    useEffect(() => {
+        const isWindow = typeof window !== 'undefined'
+
+        if (isWindow) {
+            const handleOrientationChange = () => {
+                if (typeof window !== 'undefined') {
+                    setIsLandscape(window.innerWidth > window.innerHeight)
+                }
+            }
     
+            window.matchMedia('(orientation: landscape)').addEventListener('change', handleOrientationChange)
+    
+            return () => {
+                window.matchMedia('(orientation: landscape)').removeEventListener('change', handleOrientationChange)
+            }
+        }
+    }, [])
+
     return (
         <NormalLayout>
             <div className='w-full h-screen flex items-center justify-center relative'>
@@ -34,21 +55,21 @@ const Auth: FC = (): ReactNode => {
 
                 <div className='fixed w-full h-full top-0 right-0 left-0 bottom-0 opacity-15 bg-[url(/images/noise.png)] bg-center z-[10000] overflow-hidden pointer-events-none'></div>
 
-                <div className='absolute -top-[25%] -left-[25%] lg:-top-[15%] lg:-left-[15%] 2xl:-top-[120px] 2xl:-left-[120px] animate-spin-slow'>
-                    <CircleSmall width={420} height={420} />
+                <div className='absolute -top-[35%] -left-[35%] sm:-top-[20%] sm:-left-[20%] lg:-top-[15%] lg:-left-[15%] 2xl:-top-[120px] 2xl:-left-[120px] animate-spin-slow'>
+                    <CircleSmall width={isLandscape ? 240 : 420} height={isLandscape ? 240 : 420} />
                 </div>
 
-                <div className='absolute -bottom-[50%] -right-[50%] lg:-bottom-[35%] md:-right-[35%] 2xl:-bottom-[320px] 2xl:-right-[320px] animate-spin-oposite'>
-                    <CircleBig width={720} height={720} />
+                <div className='absolute -bottom-[70%] -right-[70%] sm:-bottom-[40%] sm:-right-[40%] lg:-bottom-[35%] md:-right-[35%] 2xl:-bottom-[320px] 2xl:-right-[320px] animate-spin-oposite'>
+                    <CircleBig width={isLandscape ? 420 : 720} height={isLandscape ? 420 : 720} />
                 </div>
 
-                <div className='max-w-xl p-10 lg:p-0'>
+                <div className='max-w-xl p-10 lg:p-0 z-10'>
                     <div className='ml-1'>
                         {/* @ts-ignore */}
-                        <LogoIcon width={140} color='#fff' />
+                        <LogoIcon width={164} color='#fff' />
                     </div>
 
-                    <h1 className='text-2xl lg:text-3xl text-white font-bold mt-8 ml-1 mb-0.5'>
+                    <h1 className='text-[22px] lg:text-3xl text-white font-bold mt-8 ml-1 mb-0.5'>
                         {Translation('join-waitlist')}
                     </h1>
 
