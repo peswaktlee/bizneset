@@ -1,6 +1,5 @@
 import type { FC, ReactNode } from 'react'
 
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useShallow } from 'zustand/react/shallow'
 import { LoadingIcon, LogoIcon } from '@/ui/icons'
@@ -16,38 +15,20 @@ const Auth: FC = (): ReactNode => {
     const { 
         User, 
         Loading, 
+        AuthModal,
         SmallLoading 
     } = AuthState(
         useShallow(state => {
             return {
                 User: state.User,
                 Loading: state.Loading,
+                AuthModal: state.AuthModal,
                 SmallLoading: state.SmallLoading
             }
         })
     )
 
-    const [isLandscape, setIsLandscape] = useState(false)
-
-    useEffect(() => {
-        const isWindow = typeof window !== 'undefined'
-
-        if (isWindow) {
-            const handleOrientationChange = () => {
-                if (typeof window !== 'undefined') {
-                    setIsLandscape(window.innerWidth > window.innerHeight)
-                }
-            }
-    
-            window.matchMedia('(orientation: landscape)').addEventListener('change', handleOrientationChange)
-    
-            return () => {
-                window.matchMedia('(orientation: landscape)').removeEventListener('change', handleOrientationChange)
-            }
-        }
-    }, [])
-
-    return (
+    if (AuthModal) return (
         <NormalLayout>
             {
                 (User && !Loading) &&

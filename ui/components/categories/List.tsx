@@ -36,13 +36,13 @@ const List: FC = (): ReactNode => {
 
 
     if (!Error && !Loading && Categories?.length !== 0) return (
-        <div className='box-content relative overflow-x-auto overflow-y-hidden'>
+        <div className='box-content relative overflow-x-auto overflow-y-hidden scrollbar-hidden'>
             <div className='flex space-x-12'>
-                <Category {...DEFAULT_CATEGORY} isActive={true} />
+                <Category {...DEFAULT_CATEGORY} isActive={Filters?.Category === null} />
 
                 {
                     Categories.map((category: CategoryInterface, index) => {
-                        const isActive = Filters?.Category === category._id
+                        const isActive = Filters?.Category === category?.Slug
 
                         return (
                             <Fragment key={index}>
@@ -51,6 +51,10 @@ const List: FC = (): ReactNode => {
                         )
                     })
                 }
+
+                <div className='absolute top-50 right-0 bg-white shadow-md border border-gray-50 text-xl flex items-center justify-center text-center text-gray-700 w-7 h-7 rounded-full'>
+                    &gt;
+                </div>
             </div>
         </div>
     )

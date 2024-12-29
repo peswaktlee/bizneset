@@ -1,16 +1,17 @@
 import type { FC, ReactNode, SVGProps } from 'react'
 
-const AllIcon: FC = (props: SVGProps<SVGSVGElement>): ReactNode => {
+const AllIcon: FC<SVGProps<SVGSVGElement>> = (props): ReactNode => {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
             width={24}
             height={24}
             fill='none'
+            viewBox='0 0 24 24'
             {...props}
         >
             <path
-                stroke='#000'
+                stroke={props?.stroke || 'currentColor'}
                 strokeLinecap='round'
                 strokeLinejoin='round'
                 strokeWidth={1.5}
@@ -18,12 +19,21 @@ const AllIcon: FC = (props: SVGProps<SVGSVGElement>): ReactNode => {
             />
             
             <path
-                stroke='#000'
+                stroke={props?.stroke || 'currentColor'}
                 strokeLinecap='round'
                 strokeLinejoin='round'
                 strokeWidth={1.5}
                 d='m7.5 9.585-3.881 1.742c-.825.375-.825.989 0 1.364l6.937 3.163c.792.361 2.095.361 2.887 0l6.937-3.163c.83-.375.83-.99.005-1.364L16.5 9.585'
             />
+
+            <defs>
+                <linearGradient id='gradient-pro' x1='0' y1='272.247' x2='-2.04416e-06' y2='537.247' gradientUnits='userSpaceOnUse'>
+                    <stop stopColor='#FF8759'/>
+                    <stop offset='0.255' stopColor='#FF457A'/>
+                    <stop offset='0.605' stopColor='#9A2CD3'/>
+                    <stop offset='1' stopColor='#3F51F5'/>
+                </linearGradient>
+            </defs>
         </svg>
     )
 }

@@ -10,12 +10,29 @@ const sq_AL = {
     'categories-empty-title': 'Nuk ka kategori!',
     'join-waitlist': 'Bashkohuni në listën e pritjes për njoftime nga zhvillimi i platformës së bizneseve.',
     'auth-with-google': 'Regjistrohu me Google',
+    'account': 'Llogaria',
+    'businesses': 'Bizneset',
+    'saved': 'Të ruajtur',
+    'my-businesses': 'Bizneset e mia',
+    'find-business': 'Kërko biznesin',
+    'city': 'Qyteti',
+    'country': 'Shteti',
+    'select-country': 'Zgjidh shtetin',
+    'page-error-found-title': 'Diçka shkoi keq!',
+    'page-error-found-description': 'Diçka shkoi keq gjatë ngarkimit të faqes, ju lutem provoni përsëri.',
+    'add-your-business': 'Shto biznesin tënd',
+    'go-back-home': 'Kthehu në faqen kryesore',
+    'page-not-found-title': 'Faqja nuk u gjet!',
+    'page-not-found-description': 'Faqja që po kërkoni nuk u gjet, ju lutem kthehuni në faqen kryesore.',
+    'select-city': 'Zgjidh qytetin',
     'categories-empty-description': 'Nuk u gjetën kategori për t\'u shfaqur, ju lutem shtoni disa kategori për të vazhduar.',
     'join-the-waitlist': 'Bashkohu listës së pritjes',
     'cancel': 'Anulo',
     'confirm': 'Konfirmo',
+    'search': 'Kërko',
     'logout': 'Dilni nga llogaria',
-    'you-are-in-waitlist': 'Ju jeni në listën e pritjes!'
+    'you-are-in-waitlist': 'Ju jeni në listën e pritjes!',
+    'hero-title': 'Një platformë për promovimin e bizneseve me pronarë muslimanë.'
 }
 
 export default sq_AL

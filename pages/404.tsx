@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react'
-import { Auth } from '@/ui/pages'
+import { NotFound } from '@/ui/pages'
 
-const Home: FC = (): ReactNode => <Auth />
+const Home: FC = (): ReactNode => <NotFound />
 export default Home

@@ -4,9 +4,8 @@ import { useEffect, useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { ConfirmationState } from '@/data/states'
 import { Translation } from '@/helpers/generals'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Button } from '@/ui/views'
-// import { InfoCircleIcon } from '@/ui/icons'
+import { InfoIcon, XIcon } from '@/ui/icons'
 import { BUTTON_TYPES } from '@/data/constants'
 
 const Confirmation: FC = (): ReactNode => {
@@ -91,12 +90,12 @@ const Confirmation: FC = (): ReactNode => {
                         type={BUTTON_TYPES.SECONDARY}
                         onClick={Close}
                         className='absolute w-auto top-3 right-2.5 text-sm p-[5px] ml-auto inline-flex'
-                        icon={<XMarkIcon className='w-4 h-4 text-gray-600' />}
+                        icon={<XIcon className='w-4 h-4 text-gray-600' />}
                     />
 
                     <div className='p-6 pb-4 text-center'>
                         <div className='w-full flex justify-center items-center align-middle'>
-                            {/* <InfoCircleIcon className='w-8 h-8' /> */}
+                            <InfoIcon className='w-8 h-8' />
                         </div>
 
                         <h3 className='mb-5 mt-2 text-md font-bold text-xl text-gray-600'>
