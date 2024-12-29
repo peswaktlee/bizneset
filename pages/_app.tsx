@@ -4,7 +4,7 @@ import '@/ui/styles/bizneset.css'
 import { FC, Fragment, ReactNode } from 'react'
 import { AppProps } from 'next/app'
 import { useAuth } from '@/hooks'
-import { SEO, Analytics } from '@/ui/tools'
+import { SEO, Scripts } from '@/ui/tools'
 
 const App: FC<AppProps> = (props): ReactNode => {
     useAuth()
@@ -15,7 +15,7 @@ const App: FC<AppProps> = (props): ReactNode => {
         <Fragment>
             <SEO />
             <Component {...pageProps} />
-            <Analytics />
+            <Scripts />
         </Fragment>
     )
 }

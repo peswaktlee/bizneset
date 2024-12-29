@@ -147,3 +147,8 @@ export const BUTTON_TYPES = {
     SECONDARY: 'secondary',
     ACTION: 'action'
 }
+
+export const ELEMENTS_IDS = {
+    GOOGLE_ANALYTICS: 'google-analytics',
+    HOTJAR: 'hotjar'
+}
