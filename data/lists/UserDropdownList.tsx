@@ -2,11 +2,16 @@ import type { MouseEvent } from 'react'
 import type { RouterPathFunctionType, UserDropdownListItemType } from '@/ts'
 
 import { BlockSameLinkClick } from '@/helpers/events'
-import { ArrowLeftCircleIcon } from '@heroicons/react/24/outline'
-import { BookmarkIcon, BuildingStorefrontIcon, UserIcon } from '@heroicons/react/24/outline'
 import { AuthState } from '@/data/states'
 import { UserLogout } from '@/actions/users'
 import { PATHS, USER_ROLES } from '@/data/constants'
+
+import { 
+    BuildingsIcon, 
+    BookmarkIcon, 
+    UserIcon, 
+    LogoutIcon 
+} from '@/ui/icons'
 
 const UserDropdownList = (pathname: string, push: RouterPathFunctionType): Array<UserDropdownListItemType> => {
     const { User } = AuthState.getState()
@@ -14,33 +19,33 @@ const UserDropdownList = (pathname: string, push: RouterPathFunctionType): Array
     let list = [
         {
             href: `/${PATHS.ACCOUNT}`,
-            name: PATHS.ACCOUNT,
+            name: 'account',
             onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.ACCOUNT}`),
             isActive: pathname === `/${PATHS.ACCOUNT}`,
             icon: <UserIcon strokeWidth={2} className='w-4 h-4 mr-2 text-gray-500' />,
-            onlyAdmin: true
+            onlyAdmin: false
         },
         {
             href: `/${PATHS.BUSINESSES}`,
-            name: PATHS.BUSINESSES,
+            name: 'my-businesses',
             onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.BUSINESSES}`),
             isActive: pathname === `/${PATHS.BUSINESSES}`,
-            icon: <BuildingStorefrontIcon className='w-5 h-5 mr-2' />,
-            onlyAdmin: true
+            icon: <BuildingsIcon className='w-5 h-5 mr-2' />,
+            onlyAdmin: false
         },
         {
             href: `/${PATHS.SAVED}`,
-            name: PATHS.SAVED,
+            name: 'saved',
             onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.SAVED}`),
             isActive: pathname === `/${PATHS.SAVED}`,
             icon: <BookmarkIcon className='w-5 h-5 mr-2' />,
-            onlyAdmin: true
+            onlyAdmin: false
         },
         {
-            href: null,
-            name: null,
+            href: '',
+            name: 'logout',
             isActive: false,
-            icon: <ArrowLeftCircleIcon strokeWidth={2} className='w-4 h-4 mr-2 text-gray-500' />,
+            icon: <LogoutIcon strokeWidth={2} className='w-4 h-4 mr-2 text-gray-500' />,
             onlyAdmin: false,
             onClick: () => {
                 UserLogout()

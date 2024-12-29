@@ -3,8 +3,8 @@ import type { HandleColorsFunctionsReturnTypes, NotificationInterface, Notificat
 
 import { useShallow } from 'zustand/react/shallow'
 import { NotificationState } from '@/data/states'
-import { CheckIcon, ExclamationCircleIcon, XCircleIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import { NOTIFICATION_TYPES } from '@/data/constants'
+import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '@/ui/icons'
 
 const Notification: FC = (): ReactNode => {
     const { Notifications } = NotificationState(
@@ -43,10 +43,10 @@ const Notification: FC = (): ReactNode => {
     }
 
     const HandleIcon = (type: NotificationTypes, color: string): ReactNode => {
-        if (type === NOTIFICATION_TYPES.ERROR) return <XCircleIcon color={color} className='w-[18px] h-[18px]' />
-        if (type === NOTIFICATION_TYPES.SUCCESS) return <CheckIcon color={color} className='w-[18px] h-[18px]' />
-        if (type === NOTIFICATION_TYPES.WARNING) return <ExclamationCircleIcon color={color} className='w-[18px] h-[18px]' />
-        else return <InformationCircleIcon color={color} className='w-[18px] h-[18px]' />
+        if (type === NOTIFICATION_TYPES.ERROR) return <ErrorIcon color={color} className='w-[18px] h-[18px]' />
+        if (type === NOTIFICATION_TYPES.SUCCESS) return <SuccessIcon color={color} className='w-[18px] h-[18px]' />
+        if (type === NOTIFICATION_TYPES.WARNING) return <WarningIcon color={color} className='w-[18px] h-[18px]' />
+        else return <InfoIcon color={color} className='w-[18px] h-[18px]' />
     }
 
     return (

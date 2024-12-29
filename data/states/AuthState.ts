@@ -16,6 +16,7 @@ const AuthState = create(
             const UserInitialState: AuthStateInterface = {
                 User: DEFAULT_AUTH_STATE.User,
                 Loading: DEFAULT_AUTH_STATE.Loading,
+                AuthModal: DEFAULT_AUTH_STATE.AuthModal,
                 Error: DEFAULT_AUTH_STATE.Error,
                 SmallLoading: DEFAULT_AUTH_STATE.SmallLoading,
                 UserModal: DEFAULT_AUTH_STATE.UserModal,

@@ -22,6 +22,7 @@ export interface AuthStateInterface {
     User: UserInterface | null | false
     Loading: boolean
     Error: boolean
+    AuthModal: boolean
     SmallLoading: boolean
     UserModal: boolean
     SetAuthState: (payload: Partial<AuthStateInterface>) => void
@@ -42,6 +43,12 @@ export interface BusinessesStateInterface {
     Reference: null | string
     HasMore: boolean
     SetBusinessesState: (payload: Partial<BusinessesStateInterface>) => void
+}
+
+export interface AppStateInterface {
+    FixedHeader: boolean
+    ScrollPosition: number
+    SetAppState: (payload: Partial<AppStateInterface>) => void
 }
 
 export interface BusinessStateInterface {

@@ -4,7 +4,8 @@ import { useShallow } from 'zustand/react/shallow'
 import { AuthState } from '@/data/states'
 import { Button } from '@/ui/views'
 import { ImageOnDrag, ImageOnError } from '@/helpers/events'
-import { UserIcon } from '@heroicons/react/24/outline'
+import { UserIcon } from '@/ui/icons'
+import { Translation } from '@/helpers/generals'
 
 const UserProfile: FC = (): ReactNode => {
     const {
@@ -29,7 +30,7 @@ const UserProfile: FC = (): ReactNode => {
 
     if (User && !Loading) return (
         <div className='w-full flex items-center'>
-            <div className='py-3 px-4 flex justify-end items-end flex-col'>
+            {/* <div className='py-3 px-4 flex justify-end items-end flex-col'>
                 <span className='block text-sm font-semibold text-gray-800'>
                     {User?.Name?.trim()?.length > 32 ? `${User?.Name?.slice(0, 20)?.trim()}...` : User?.Name}
                 </span>
@@ -39,16 +40,20 @@ const UserProfile: FC = (): ReactNode => {
                         {User?.Email}
                     </span>
                 </div>
-            </div>
+            </div> */}
+
+            <p className='text-white font-medium text-sm mr-2'>
+                {Translation('add-your-business')}
+            </p>
 
             <Button
                 type='secondary'
                 onClick={HandleUserModal}
-                className='p-1.5 border border-gray-200 relative text-sm w-10 h-10 rounded-xl md:mr-0'
-                icon={<UserIcon className='w-7 h-7 text-gray-500' />}
+                className='relative text-sm w-9 h-9 rounded-full'
+                icon={<UserIcon className='w-6 h-6 text-gray-500' />}
             >
                 <img
-                    className='w-full h-full p-[2px] rounded-xl absolute top-0 left-0 object-cover bottom-0 right-0 z-10'
+                    className='w-full h-full p-[1px] rounded-full absolute top-0 left-0 object-cover bottom-0 right-0 z-10'
                     src={User?.Avatar}
                     alt={User?.Name}
                     onError={ImageOnError}

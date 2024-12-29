@@ -3,6 +3,7 @@ export const NOTIFICATION_DURATION = 3000
 export const DEFAULT_AUTH_STATE = {
     Loading: true,
     User: null,
+    AuthModal: false,
     Error: false,
     SmallLoading: false,
     UserModal: false
@@ -22,6 +23,11 @@ export const DEFAULT_BUSINESSES_STATE = {
     Error: false,
     Reference: null,
     HasMore: true
+}
+
+export const DEFAULT_APP_STATE = {
+    FixedHeader: false,
+    ScrollPosition: 0
 }
 
 export const DEFAULT_CATEGORIES_STATE = {
@@ -52,7 +58,8 @@ export const STATES = {
     CONFIRMATION: 'ConfirmationState',
     BUSINESSES: 'BusinessesState',
     BUSINESS: 'BusinessState',
-    CATEGORIES: 'CategoriesState'
+    CATEGORIES: 'CategoriesState',
+    APP: 'AppState'
 }
 
 export const DEFAULT_NOTIFICATION_STATE = {
@@ -106,7 +113,7 @@ export const PATHS = {
     ACCOUNT: 'llogaria',
     BUSINESSES: 'bizneset',
     SAVED: 'te-ruajturat',
-    CATEGORIES: 'kategorite'
+    CATEGORIES: 'kategoria'
 }
 
 export const CATEGORIES_PATHS = {
