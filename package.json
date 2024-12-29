@@ -1,6 +1,6 @@
 {
   "name": "bizneset-www",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "www:dev": "npm run www:check && env-cmd -f .env.dev next dev --port 4400",
