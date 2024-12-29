@@ -50,12 +50,12 @@ const Auth: FC = (): ReactNode => {
 
     return (
         <NormalLayout>
-            <div className='w-full h-screen flex items-center justify-center relative'>
+            <div className='w-full h-full flex items-center justify-center relative'>
                 <SEO title={Translation('join-the-waitlist')} />
 
                 <div className='fixed w-full h-full top-0 right-0 left-0 bottom-0 opacity-15 bg-[url(/images/noise.png)] bg-center z-[10000] overflow-hidden pointer-events-none'></div>
 
-                <div className='absolute -top-[35%] -left-[35%] sm:-top-[20%] sm:-left-[20%] lg:-top-[15%] lg:-left-[15%] 2xl:-top-[120px] 2xl:-left-[120px] animate-spin-slow'>
+                <div className='absolute -top-[35%] -left-[35%] sm:-top-[20%] sm:-left-[20%] lg:-top-[15%] lg:-left-[25%] 2xl:-top-[120px] 2xl:-left-[120px] animate-spin-slow'>
                     <CircleSmall width={isLandscape ? 240 : 420} height={isLandscape ? 240 : 420} />
                 </div>
 
@@ -63,17 +63,17 @@ const Auth: FC = (): ReactNode => {
                     <CircleBig width={isLandscape ? 420 : 720} height={isLandscape ? 420 : 720} />
                 </div>
 
-                <div className='max-w-xl p-10 lg:p-0 z-10'>
+                <div className='max-w-[700px] p-10 lg:p-0 z-10'>
                     <div className='ml-1'>
                         {/* @ts-ignore */}
-                        <LogoIcon width={164} color='#fff' />
+                        <LogoIcon width={140} color='#fff' />
                     </div>
 
-                    <h1 className='text-[22px] lg:text-3xl text-white font-bold mt-8 ml-1 mb-0.5'>
+                    <h1 className='text-[22px] lg:text-4xl text-white font-medium mt-7 ml-1 mb-0.5'>
                         {Translation('join-waitlist')}
                     </h1>
 
-                    <div className='flex justify-start items-center mt-4'>
+                    <div className='flex justify-start items-center mt-5'>
                         {
                             !User &&
                             <button 
@@ -95,7 +95,7 @@ const Auth: FC = (): ReactNode => {
                                     </svg>
                                 }
                                 
-                                <b className='font-extrabold text-sm text-gray-900'>
+                                <b className='font-medium text-sm text-gray-900'>
                                     {Translation('auth-with-google')}
                                 </b>
                             </button>
@@ -104,9 +104,25 @@ const Auth: FC = (): ReactNode => {
                         {
                             (User && !Loading) &&
                             <div className='flex justify-start items-start flex-col gap-2.5'>
-                                <p className='text-green-500'>
-                                    {Translation('you-are-in-waitlist')}
-                                </p>
+                                <div className='flex items-center gap-2 mb-1'>
+                                    <svg width='24' viewBox='0 0 61 62' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                                        <circle cx='30.3857' cy='31.0009' r='26.5871' stroke='url(#paint0_linear_414_8111)' stroke-width='3.03853'/>
+                                        <path d='M19.8281 30.1561L27.4289 37.7569L43.9778 21.209' stroke='white' stroke-width='3.03853'/>
+                                        
+                                        <defs>
+                                            <linearGradient id='paint0_linear_414_8111' x1='2.2793' y1='2.89453' x2='2.2793' y2='59.1073' gradientUnits='userSpaceOnUse'>
+                                                <stop stopColor='#FF8759'/>
+                                                <stop offset='0.255' stopColor='#FF457A'/>
+                                                <stop offset='0.605' stopColor='#9A2CD3'/>
+                                                <stop offset='1' stopColor='#3F51F5'/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+
+                                    <p className='text-gray-200'>
+                                        {Translation('you-are-in-waitlist')}
+                                    </p>
+                                </div>
 
                                 <button className='bg-white flex items-center gap-2.5 pl-2.5 pr-3 mt-1 py-[7px] rounded-full transition-all hover:opacity-85 duration-300' onClick={UserLogout}>
                                     <b className='font-extrabold text-sm text-gray-900'>

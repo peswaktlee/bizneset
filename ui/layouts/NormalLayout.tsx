@@ -9,7 +9,7 @@ const NormalLayout: FC<NormalLayoutTypes> = (props): ReactNode => {
     const { children, className } = props
 
     return (
-        <div className='w-full h-full relative'>
+        <div className='w-full h-screen relative'>
             <div className='w-full h-full max-w-6xl mx-auto'>
                 {children}
             </div>
@@ -20,8 +20,6 @@ const NormalLayout: FC<NormalLayoutTypes> = (props): ReactNode => {
             {/* <Header />
 
             <div className='w-full h-[1px] bg-gray-200 my-6' /> */}
-
-            
         </div>
     )
 }
