@@ -97,10 +97,10 @@ export const ENDPOINTS = {
         LOG: 'debug/insert-log'
     },
     USERS: {
-        AUTH: 'users/auth-user'
+        AUTH: 'users/auth'
     },
     CATEGORIES: {
-        LIST_CATEGORIES: 'categories/list-categories'
+        LIST_CATEGORIES: 'categories/list'
     },
     BUSINESSES: {
         LIST: 'businesses/list',
@@ -109,10 +109,10 @@ export const ENDPOINTS = {
         SUBMIT: 'businesses/submit'
     },
     CITIES: {
-        LIST: 'cities/list-cities'
+        LIST: 'cities/list'
     },
     COUNTRIES: {
-        LIST: 'countries/list-countries'
+        LIST: 'countries/list'
     }
 }
 
