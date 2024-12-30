@@ -1,6 +1,7 @@
-import { useMemo, type FC, type ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 
-import { useBusinesses } from '@/hooks'
+import { useMemo } from 'react'
+import { useBusiness, useSimilarBusinesses } from '@/hooks'
 import { useShallow } from 'zustand/react/shallow'
 import { NormalLayout } from '@/ui/layouts'
 import { SEO } from '@/ui/tools'
@@ -8,7 +9,8 @@ import { BusinessState } from '@/data/states'
 import { Gallery, GeneralInfo, Locations, SimilarBusinesses } from '@/ui/components/business-page'
 
 const Business: FC = (): ReactNode => {
-    useBusinesses()
+    useBusiness()
+    useSimilarBusinesses()
 
     const { Business, Loading, Error } = BusinessState(
         useShallow(state => {
