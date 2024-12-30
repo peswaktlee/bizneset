@@ -14,7 +14,7 @@ const InfoIcon: FC<SVGProps<SVGSVGElement>> = (props): ReactNode => {
                 stroke={props?.stroke || 'currentColor'}
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                strokeWidth={2}
+                strokeWidth={props?.strokeWidth || 1.5}
                 d='M12 12V7.5m0 7.835v.04M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
             />
         </svg>

@@ -17,6 +17,7 @@ const BusinessesState = create(
                 Business: DEFAULT_BUSINESS_STATE.Business,
                 Loading: DEFAULT_BUSINESS_STATE.Loading,
                 Error: DEFAULT_BUSINESS_STATE.Error,
+                NotFound: DEFAULT_BUSINESS_STATE.NotFound,
                 SetBusinessState: (payload: Partial<BusinessStateInterface>) => set((state: BusinessStateInterface) => ({ 
                     ...state, 
                     ...payload 

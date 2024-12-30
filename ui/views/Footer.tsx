@@ -1,6 +1,13 @@
 import type { FC, ReactNode } from 'react'
 
+import { useMemo } from 'react'
+import { FooterSocialMediaLinks } from '@/data/lists'
+import { Link, PATHS } from '@/data/constants'
+import { Translation } from '@/helpers/generals'
+
 const Footer: FC = (): ReactNode => {
+    const list = useMemo(() => FooterSocialMediaLinks(), [])
+
     return (
         <footer className='flex flex-col w-full h-auto'>
             <div className='bg-gray-200 w-full h-[1px] my-2' />
@@ -11,27 +18,44 @@ const Footer: FC = (): ReactNode => {
                         <p className='text-sm text-gray-700 font-medium'>
                             &copy; {new Date().getFullYear()}&nbsp;
                             
-                            <a href='https://jap-i.com' className='hover:text-[#377DFF] transition-all' target='_blank' rel='noreferrer'>
-                                Peswaktlee Bizneset
-                            </a>
+                            <Link href={`${PATHS.HOME}`} className='hover:text-[#377DFF] transition-all' target='_blank' rel='noreferrer'>
+                                {Translation('app-name')}
+                            </Link>
                         </p>
                     </div>
 
                     <div className='h-4 w-[1px] bg-gray-200' />
 
                     <div className='flex items-center gap-3'>
-                        <a href='https://jap-i.com' className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
-                            Kushtet e Sherbimit
-                        </a>
+                        <Link href={`/${PATHS.TERMS}`} className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
+                            {Translation('terms-of-services')}
+                        </Link>
 
-                        <a href='https://jap-i.com' className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
-                            Politika e Privates
+                        <a href={`/${PATHS.PRIVACY}`} className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
+                            {Translation('privacy-policty')}
                         </a>
                     </div>
                 </div>
 
-                <div>
-                    social icons
+                <div className='flex items-center gap-2'>
+                    {
+                        list?.map((item) => {
+                            const { href, icon } = item
+
+                            const Icon = icon
+
+                            return (
+                                <a 
+                                    key={href}
+                                    target='_blank'
+                                    href={href}
+                                    className='p-1 rounded-full transition-all ease-in-out duration-300 cursor-pointer group'
+                                >
+                                    <Icon className='text-gray-900 group-hover:text-gray-500 transition-all ease-in-out duration-300' />
+                                </a>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </footer>

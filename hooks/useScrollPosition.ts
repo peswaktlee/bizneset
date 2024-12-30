@@ -22,8 +22,6 @@ const useScrollPosition = () => {
     }
 
     useEffect(() => {
-        console.log('useScrollPosition')
-        
         window.addEventListener('scroll', HandleScroll)
         window.addEventListener('wheel', HandleScroll)
 

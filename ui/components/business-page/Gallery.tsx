@@ -1,9 +1,9 @@
 import type { FC, ReactNode } from 'react'
 
-const Saved: FC = (): ReactNode => {
+const Gallery: FC = (): ReactNode => {
     return (
         null
     )
 }
 
-export default Saved
+export default Gallery

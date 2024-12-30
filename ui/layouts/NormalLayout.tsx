@@ -12,7 +12,7 @@ const NormalLayout: FC<NormalLayoutTypes> = (props): ReactNode => {
             <div className='w-full h-full mx-auto relative overflow-y-scroll scrollbar-hidden'>
                 {children}
             </div>
-
+            
             <Confirmation />
             <Notification />
             <Auth />

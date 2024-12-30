@@ -51,7 +51,6 @@ const Auth: FC = (): ReactNode => {
 
                 <div className='max-w-[700px] p-10 lg:p-0 z-10'>
                     <div className='ml-1'>
-                        {/* @ts-ignore */}
                         <LogoIcon className='w-[150px] 2xl:w-[180px]' color='#fff' />
                     </div>
 

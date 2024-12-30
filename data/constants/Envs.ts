@@ -4,6 +4,7 @@ export const UNIVERSE: string = process.env.NEXT_PUBLIC_UNIVERSE as string
 export const SERVER_URL: string = process.env.NEXT_PUBLIC_SERVER_URL as string
 export const GOOGLE_ANALYTICS_ID: string = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string
 export const HOTJAR_ID: string = process.env.NEXT_PUBLIC_HOTJAR_ID as string
+export const CDN_URL: string = process.env.NEXT_PUBLIC_CDN_URL as string
 
 // Firebase
 export const FB_API_KEY: string = process.env.NEXT_PUBLIC_FB_API_KEY as string

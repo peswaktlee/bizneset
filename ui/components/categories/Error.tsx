@@ -15,14 +15,14 @@ const Error: FC = (): ReactNode => {
     )
 
     if (CategoriesError) return (
-        <div className='w-full h-[60%] bg-white px-4 py-16 place-content-center flex justify-center flex-col items-center align-middle'>
+        <div className='w-full h-auto px-4 py-32 place-content-center flex justify-center flex-col items-center align-middle'>
             <BugIcon className='w-10 h-10 mb-2' />
 
-            <h1 className='mt-2 text-xl font-bold mb-1 tracking-tight text-gray-700'>
+            <h1 className='mt-3 text-xl font-bold mb-1 tracking-tight text-black'>
                 {Translation('categories-error-title')}
             </h1>
 
-            <p className='text-gray-500 text-md text-[14px] w-[60%] text-center'>
+            <p className='text-gray-700 text-[14.5px] text-md mt-2 w-[60%] text-center'>
                 {Translation('categories-error-description')}
             </p>
         </div>
