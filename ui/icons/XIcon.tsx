@@ -13,7 +13,7 @@ const XIcon: FC<SVGProps<SVGSVGElement>> = (props): ReactNode => {
             <path
                 stroke={props?.stroke || 'currentColor'}
                 strokeLinecap='round'
-                strokeWidth={2}
+                strokeWidth={props?.strokeWidth || 1.5}
                 d='M18 6 6 18m12 0L6 6'
             />
         </svg>

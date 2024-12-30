@@ -21,6 +21,11 @@ body {
   transform-origin: 0 0;
 }
 
+:root {
+    --primary-bg: #100740;
+    --primary-bg-hover: #1e0c82;
+}
+
 html,
 body,
 #root {
@@ -85,4 +90,27 @@ span {
 
 .animate-spin-oposite {
   animation: spin 10s linear infinite reverse;
+}
+
+.text-gradient {
+    background: linear-gradient(
+        to right, 
+        #FF8759,
+        #FF457A,
+        #9A2CD3,
+        #3F51F5
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+    background: linear-gradient(
+        to right, 
+        #FF8759,
+        #FF457A,
+        #9A2CD3,
+        #3F51F5
+    );
 }

@@ -29,8 +29,8 @@ const AuthState = create(
             return UserInitialState
         },
         {
-            name: STATES.USER,
-            store: STATES.USER,
+            name: STATES.AUTH,
+            store: STATES.AUTH,
             enabled: ENV_MODES.DEV === ENV_MODE
         }
     )

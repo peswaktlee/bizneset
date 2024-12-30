@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode, MouseEvent } from 'react'
 import type { METHODS } from 'http'
+import type { CSSProperties, ReactNode, MouseEvent, FC, SVGProps } from 'react'
 
 import { sq_AL } from '@/data/langs'
 import { USER_ROLES, NOTIFICATION_TYPES, BUTTON_TYPES } from '@/data/constants'
@@ -38,6 +38,7 @@ export type RequestType = {
 export type RequestProFunctionProps = {
     path: string
     method: HttpMethodTypes
+    signal?: AbortSignal
     body?: Record<string, unknown>
 }
 
@@ -85,6 +86,13 @@ export type UserDropdownListItemType = {
     isActive: boolean
     onlyAdmin: boolean
     icon: ReactNode
+}
+
+export type FooterSocialMediaLinksType = {
+    href: string,
+    icon: FC<SVGProps<SVGSVGElement>>,
+    name: TranslationKeys
+    show: true
 }
 
 export type LoadingReference = {

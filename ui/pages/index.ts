@@ -4,7 +4,7 @@ import Businesses from '@/ui/pages/Businesses'
 import Error from '@/ui/pages/Error'
 import NotFound from '@/ui/pages/NotFound'
 import Privacy from '@/ui/pages/Privacy'
-import Saved from '@/ui/pages/Saved'
+import UserSaves from '@/ui/pages/UserSaves'
 import Terms from '@/ui/pages/Terms'
 import UserBusinesses from '@/ui/pages/UserBusinesses'
 
@@ -15,7 +15,7 @@ export {
     Error,
     NotFound,
     Privacy,
-    Saved,
+    UserSaves,
     Terms,
     UserBusinesses
 }

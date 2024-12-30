@@ -1,12 +1,20 @@
 import type { FC, ReactNode } from 'react'
 
-import { NormalLayout } from '@/ui/layouts'
+import { useUserBusinesses } from '@/hooks'
+import { List, Error, Loading, Empty } from '@/ui/components/user-businesses-list'
 
 const UserBusinesses: FC = (): ReactNode => {
+    const { InfiniteEndReference } = useUserBusinesses()
+
     return (
-        <NormalLayout>
-            UserBusinesses
-        </NormalLayout>
+        <div className='relative py-3 mt-4'>
+            <List />
+            <Error />
+            <Loading />
+            <Empty />
+
+            <div className='w-full h-[1px] mt-[1px] mb-8' ref={InfiniteEndReference} />
+        </div>
     )
 }
 

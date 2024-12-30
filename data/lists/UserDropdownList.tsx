@@ -22,15 +22,15 @@ const UserDropdownList = (pathname: string, push: RouterPathFunctionType): Array
             name: 'account',
             onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.ACCOUNT}`),
             isActive: pathname === `/${PATHS.ACCOUNT}`,
-            icon: <UserIcon strokeWidth={2} className='w-4 h-4 mr-2 text-gray-500' />,
+            icon: <UserIcon className='w-5 h-5 mr-2 text-black' />,
             onlyAdmin: false
         },
         {
-            href: `/${PATHS.BUSINESSES}`,
+            href: `/${PATHS.USER_BUSINESSES}`,
             name: 'my-businesses',
-            onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.BUSINESSES}`),
-            isActive: pathname === `/${PATHS.BUSINESSES}`,
-            icon: <BuildingsIcon className='w-5 h-5 mr-2' />,
+            onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.USER_BUSINESSES}`),
+            isActive: pathname === `/${PATHS.USER_BUSINESSES}`,
+            icon: <BuildingsIcon className='w-5 h-5 mr-2 text-black' />,
             onlyAdmin: false
         },
         {
@@ -38,14 +38,14 @@ const UserDropdownList = (pathname: string, push: RouterPathFunctionType): Array
             name: 'saved',
             onClick: (event: MouseEvent<HTMLAnchorElement>) => BlockSameLinkClick(event, pathname === `/${PATHS.SAVED}`),
             isActive: pathname === `/${PATHS.SAVED}`,
-            icon: <BookmarkIcon className='w-5 h-5 mr-2' />,
+            icon: <BookmarkIcon className='w-5 h-5 mr-2 text-black' />,
             onlyAdmin: false
         },
         {
             href: '',
             name: 'logout',
             isActive: false,
-            icon: <LogoutIcon strokeWidth={2} className='w-4 h-4 mr-2 text-gray-500' />,
+            icon: <LogoutIcon className='w-5 h-5 mr-2 text-black' />,
             onlyAdmin: false,
             onClick: () => {
                 UserLogout()

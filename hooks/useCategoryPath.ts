@@ -1,10 +1,20 @@
 import { useEffect } from 'react'
 import { useShallow } from 'zustand/react/shallow'
-import { BusinessesState } from '@/data/states'
+import { BusinessesState, CategoriesState } from '@/data/states'
 import { useRouter } from 'next/router'
 
 const useCategoryPath = () => {
     const router = useRouter()
+
+    const { Categories } = CategoriesState(
+        useShallow(
+            state => {
+                return {
+                    Categories: state.Categories
+                }
+            }
+        )
+    )
 
     const { Filters, SetBusinessesState } = BusinessesState(
         useShallow(
@@ -24,16 +34,31 @@ const useCategoryPath = () => {
             const category = categorySlug as string
             const currentCategory = Filters?.Category
 
-            const isDifferent = currentCategory !== category
+            const exits = Categories?.find(c => c?.Slug === category)
 
-            if (isDifferent) SetBusinessesState({
-                Filters: {
-                    ...Filters,
-                    Category: category
-                }
-            })
+            if (exits) {
+                const isDifferent = currentCategory !== category
+
+                if (isDifferent) SetBusinessesState({
+                    Filters: {
+                        ...Filters,
+                        Category: category
+                    }
+                })
+            }
+
+            else {
+                SetBusinessesState({
+                    Filters: {
+                        ...Filters,
+                        Category: null
+                    }
+                })
+
+                window.history.pushState({}, '', '/')
+            }
         }
-    }, [router?.query?.slug])
+    }, [router?.query?.slug, Categories])
 }
 
 export default useCategoryPath

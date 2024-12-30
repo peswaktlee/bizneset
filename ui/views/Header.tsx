@@ -13,11 +13,9 @@ const Header: FC = (): ReactNode => {
         })
     )
 
-    console.log('FixedHeader', FixedHeader)
-
     return (
         <header className='max-w-6xl mx-auto'>
-            <nav className={`px-4 py-3 mt-2 rounded-lg flex w-full justify-between items-center ${FixedHeader ? 'bg-white shadow-md fixed' : 'bg-transparent w-full'}`}>
+            <nav className={`py-3 mt-2 rounded-lg flex w-full justify-between items-center ${FixedHeader ? 'bg-white shadow-md fixed' : 'bg-transparent w-full'}`}>
                 <Logo />
                 <User />
             </nav>

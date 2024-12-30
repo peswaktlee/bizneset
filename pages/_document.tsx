@@ -1,3 +1,5 @@
+import type { FC, ReactNode } from 'react'
+
 import { 
     Html, 
     Head, 
@@ -5,7 +7,7 @@ import {
     NextScript 
 } from 'next/document'
 
-export default function Document() {
+const Document: FC = (): ReactNode => {
     return (
         <Html lang='en' className='h-full'>
             <Head />
@@ -19,3 +21,5 @@ export default function Document() {
         </Html>
     )
 }
+
+export default Document

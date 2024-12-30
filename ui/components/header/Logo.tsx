@@ -17,7 +17,10 @@ const Logo: FC = (): ReactNode => {
 
     return (
         <Link href={PATHS.HOME}>
-            <LogoIcon color={!FixedHeader ? '#fff' : undefined}  />
+            <LogoIcon 
+                width={124} 
+                color={!FixedHeader ? '#fff' : undefined}  
+            />
         </Link>
     )
 }

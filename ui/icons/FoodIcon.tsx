@@ -13,7 +13,7 @@ const FoodIcon: FC<SVGProps<SVGSVGElement>> = (props): ReactNode => {
             <g
                 stroke={props?.stroke || 'currentColor'}
                 strokeLinejoin='round'
-                strokeWidth={1.5}
+                strokeWidth={props?.strokeWidth || 1.5}
                 clipPath='url(#a)'
             >
                 <path d='m2.696 2.238 17.27 17.27a1.748 1.748 0 0 1-2.471 2.472l-4.22-4.292a1.5 1.5 0 0 1-.43-1.051v-.26a1.5 1.5 0 0 0-.447-1.067l-.544-.503a1.5 1.5 0 0 0-1.397-.349 2.274 2.274 0 0 1-2.183-.592L4.27 9.861C1.894 7.485 1.02 3.898 2.696 2.238Z' />
@@ -27,15 +27,6 @@ const FoodIcon: FC<SVGProps<SVGSVGElement>> = (props): ReactNode => {
                 <clipPath id='a'>
                     <path fill='#fff' d='M0 0h24v24H0z' />
                 </clipPath>
-            </defs>
-
-            <defs>
-                <linearGradient id='gradient-pro' x1='0' y1='272.247' x2='-2.04416e-06' y2='537.247' gradientUnits='userSpaceOnUse'>
-                    <stop stopColor='#FF8759'/>
-                    <stop offset='0.255' stopColor='#FF457A'/>
-                    <stop offset='0.605' stopColor='#9A2CD3'/>
-                    <stop offset='1' stopColor='#3F51F5'/>
-                </linearGradient>
             </defs>
         </svg>
     )

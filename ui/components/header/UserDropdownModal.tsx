@@ -21,7 +21,7 @@ const UserDropdownModal = () => {
     )
     
     if (User && UserModal) return (
-        <div className='absolute border border-gray-200 top-11 right-0 my-4 w-48 text-base list-none bg-white rounded-xl divide-y divide-gray-100 z-[100000000]'>
+        <div className='shadow-lg absolute border border-gray-100 top-8 right-0 my-4 w-48 text-base list-none bg-white rounded-xl divide-y divide-gray-50 z-[100000000]'>
             {
                 UserDropdownList(pathname, push)?.map((item: UserDropdownListItemType, index: number) => {
                     const { 
@@ -40,7 +40,7 @@ const UserDropdownModal = () => {
                             key={name} 
                             href={href} 
                             onClick={(event: MouseEvent<HTMLAnchorElement>) => onClick(event)} 
-                            className={`text-gray-500 font-medium cursor-pointer flex items-center justify-between py-1 px-3 text-[13px] transition-all ease-in-out duration-500 outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:border-white ${isActive ? 'bg-gray-50' : 'hover:bg-gray-50'} ${isLast ? 'rounded-b-xl' : ''} ${isFirst ? 'rounded-t-xl' : ''}`}
+                            className={`text-gray-800 font-medium cursor-pointer flex items-center justify-between py-1 px-3 text-[13px] transition-all ease-in-out duration-500 outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:border-white ${isActive ? 'bg-gray-50' : 'hover:bg-gray-50'} ${isLast ? 'rounded-b-xl pb-1.5' : ''} ${isFirst ? 'rounded-t-xl pt-1.5' : ''}`}
                         >
                             <div className='flex items-center mr-2 whitespace-nowrap'>
                                 {icon as ReactNode}
