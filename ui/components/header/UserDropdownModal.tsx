@@ -40,7 +40,7 @@ const UserDropdownModal = () => {
                             key={name} 
                             href={href} 
                             onClick={(event: MouseEvent<HTMLAnchorElement>) => onClick(event)} 
-                            className={`text-gray-800 font-medium cursor-pointer flex items-center justify-between py-1 px-3 text-[13px] transition-all ease-in-out duration-500 outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:border-white ${isActive ? 'bg-gray-50' : 'hover:bg-gray-50'} ${isLast ? 'rounded-b-xl pb-1.5' : ''} ${isFirst ? 'rounded-t-xl pt-1.5' : ''}`}
+                            className={`text-gray-800 font-medium cursor-pointer flex items-center justify-between py-1 px-3 text-[13px] transition-all ease-in-out duration-500 outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:border-white ${isActive ? 'bg-gray-50' : 'hover:bg-gray-50'} ${isLast ? 'rounded-b-xl pb-1.5' : ''} ${isFirst ? 'rounded-t-xl pt-1.5' : ''} z-[999999]`}
                         >
                             <div className='flex items-center mr-2 whitespace-nowrap'>
                                 {icon as ReactNode}

@@ -1,5 +1,5 @@
-import { NotificationInterface, UserRoleTypes } from '@/ts'
-import { Reference } from 'react'
+import type { ManageBusinessTabTypes, NotificationInterface, UserRoleTypes } from '@/ts'
+import type { Reference } from 'react'
 
 export interface UserInterface {
     _id: string
@@ -26,6 +26,10 @@ export interface AuthStateInterface {
     AuthModal: boolean
     SmallLoading: boolean
     UserModal: boolean
+    UpdatingUser: boolean
+    ClosingAccount: boolean
+    UserForm: UserFormInterface
+    UserFormErrors: UserFormErrors
     SetAuthState: (payload: Partial<AuthStateInterface>) => void
 }
 
@@ -86,7 +90,9 @@ export interface UserSavesStateInterface {
 }
 
 export interface BusinessFormStateInterface {
-    Form: BusinessInterface | null
+    Form: BusinessFormInterface | null
+    Tab: ManageBusinessTabTypes
+    FormErrors: BusinessFormErrors | null
     Mode: 'create' | 'update' | null
     Loading: boolean
     Error: boolean
@@ -181,4 +187,62 @@ export interface CountriesStateInterface {
     Loading: boolean
     Error: boolean
     SetCountriesState: (payload: Partial<CountriesStateInterface>) => void
+}
+
+export interface UserFormInterface {
+    Name: string
+    Surname: string
+    Email: string 
+    City: string | null
+    Country: string | null
+}
+
+export interface UserFormErrors {
+    Name: boolean
+    Surname: boolean
+    Email: boolean
+    City: boolean
+    Country: boolean
+}
+
+export interface HoursInterface {
+    Monday: string | false
+    Tuesday: string | false
+    Wednesday: string | false
+    Thursday: string | false
+    Friday: string | false
+    Saturday: string | false
+    Sunday: string | false
+}
+
+export interface BusinessLocationInterface {
+    Name: string
+    Address: string
+    Phone: string
+    Email: string
+    Website: string
+    Hours: HoursInterface
+}
+
+export interface BusinessFormInterface {
+    Title: string
+    Description: string
+    Locations: Array<BusinessLocationInterface>
+    Links: Array<string>
+    Link: string
+    Address: BusinessLocationInterface
+}
+
+export interface BusinessFormErrors {
+    Title: boolean
+    Description: boolean
+    Link: boolean
+    Links: Array<boolean>
+    Address: {
+        Name: boolean
+        Address: boolean
+        Phone: boolean
+        Email: boolean
+        Website: boolean
+    },
 }

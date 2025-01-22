@@ -7,9 +7,12 @@ import useCategoryPath from '@/hooks/useCategoryPath'
 import useImage from '@/hooks/useImage'
 import useCities from '@/hooks/useCities'
 import useInfiniteScroll from '@/hooks/useInfiniteScroll'
+import useOpen from '@/hooks/useOpen'
+import usePath from '@/hooks/usePath'
 import useCountries from '@/hooks/useCountries'
 import useSimilarBusinesses from '@/hooks/useSimilarBusinesses'
 import useScrollPosition from '@/hooks/useScrollPosition'
+import userUserSaves from '@/hooks/useUserSaves'
 
 export {
     useBusiness,
@@ -21,7 +24,10 @@ export {
     useImage,
     useCities,
     useInfiniteScroll,
+    useOpen,
+    usePath,
     useCountries,
     useSimilarBusinesses,
-    useScrollPosition
+    useScrollPosition,
+    userUserSaves
 }

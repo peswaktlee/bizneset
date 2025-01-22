@@ -32,7 +32,7 @@ const useBusinesses = () => {
     const AbortControllerReference = useRef<AbortController | null>(null)
 
     const LoadMore = () => {
-        const allow = User && Object.keys(User).length > 0
+        const allow = User !== null
 
         if (allow) {
             if (AbortControllerReference.current) {
@@ -58,7 +58,9 @@ const useBusinesses = () => {
             Error: false,
             HasMore: true
         })
-        
+
+        ListBusinesses(AbortControllerReference)
+
         // @ts-ignore
     }, [User?._id])
 

@@ -18,7 +18,11 @@ const Footer: FC = (): ReactNode => {
                         <p className='text-sm text-gray-700 font-medium'>
                             &copy; {new Date().getFullYear()}&nbsp;
                             
-                            <Link href={`${PATHS.HOME}`} className='hover:text-[#377DFF] transition-all' target='_blank' rel='noreferrer'>
+                            <Link 
+                                href={`${PATHS.HOME}`} 
+                                className='hover:text-[#377DFF] transition-all' 
+                                rel='noreferrer'
+                            >
                                 {Translation('app-name')}
                             </Link>
                         </p>
@@ -27,13 +31,21 @@ const Footer: FC = (): ReactNode => {
                     <div className='h-4 w-[1px] bg-gray-200' />
 
                     <div className='flex items-center gap-3'>
-                        <Link href={`/${PATHS.TERMS}`} className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
+                        <Link 
+                            href={`/${PATHS.TERMS}`} 
+                            className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' 
+                            rel='noreferrer'
+                        >
                             {Translation('terms-of-services')}
                         </Link>
 
-                        <a href={`/${PATHS.PRIVACY}`} className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' target='_blank' rel='noreferrer'>
+                        <Link 
+                            href={`/${PATHS.PRIVACY}`} 
+                            className='hover:text-[#377DFF] transition-all text-[13px] text-gray-600' 
+                            rel='noreferrer'
+                        >
                             {Translation('privacy-policty')}
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
