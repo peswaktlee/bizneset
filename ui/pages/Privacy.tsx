@@ -1,11 +1,14 @@
 import type { FC, ReactNode } from 'react'
 
 import { NormalLayout } from '@/ui/layouts'
+import { Footer, Header } from '@/ui/views'
 
 const Privacy: FC = (): ReactNode => {
     return (
         <NormalLayout>
-            <div className='max-w-7xl mx-auto pt-16 px-4 sm:px-6 lg:px-8'>
+            <Header />
+
+            <div className='max-w-6xl mx-auto mt-24 h-full'>
                 <h1 className='text-4xl mb-4 font-extrabold tracking-tight text-gray-900'>
                     Kushtet e Shërbimit
                 </h1>
@@ -46,6 +49,8 @@ const Privacy: FC = (): ReactNode => {
                     </ul>
                 </div>
             </div>
+
+            <Footer />
         </NormalLayout>
 
     )

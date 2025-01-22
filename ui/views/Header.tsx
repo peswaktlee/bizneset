@@ -1,14 +1,30 @@
 import type { FC, ReactNode } from 'react'
 
-import { Logo, Filters, User } from '@/ui/components/header'
+import { useShallow } from 'zustand/react/shallow'
+import { usePath } from '@/hooks'
+import { AppState } from '@/data/states'
+import { Logo, User } from '@/ui/components/header'
+import { PATHS } from '@/data/constants'
 
-const Header: FC = (): ReactNode => {
+const Header: FC = (props): ReactNode => {
+    const path = usePath()
+    const isHome = path === PATHS.HOME
+
+    const { FixedHeader } = AppState(
+        useShallow(state => {
+            return {
+                FixedHeader: state.FixedHeader
+            }
+        })
+    )
+
     return (
-        <nav className='px-4 py-3 mt-2 rounded-lg flex w-full justify-between items-center'>
-            <Logo />
-            <Filters />
-            <User />
-        </nav>
+        <header className={`w-full ${isHome ? FixedHeader ? '' : 'bg-transparent' : 'bg-white border-b h-14 border-gray-100 fixed'}`}>
+            <nav className='py-2.5 max-w-6xl mx-auto rounded-lg flex w-full justify-between items-center'>
+                <Logo />
+                <User />
+            </nav>
+        </header>
     )
 }
 

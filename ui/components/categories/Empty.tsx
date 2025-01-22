@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { CategoriesState } from '@/data/states'
 import { useShallow } from 'zustand/react/shallow'
 import { Translation } from '@/helpers/generals'
-import { BriefcaseIcon } from '@heroicons/react/24/outline'
+import { FolderIcon } from '@/ui/icons'
 
 const Empty: FC = (): ReactNode => {
     const { 
@@ -21,14 +21,14 @@ const Empty: FC = (): ReactNode => {
     )
 
     if (!Error && !Loading && Categories.length === 0) return (
-        <div className='w-full h-[60%] bg-white px-4 py-16 place-content-center flex justify-center flex-col items-center align-middle'>
-            <BriefcaseIcon className='w-10 h-10 mb-2' />
+        <div className='w-full h-auto px-4 py-32 place-content-center flex justify-center flex-col items-center align-middle'>
+            <FolderIcon className='w-10 h-10 mb-2' />
             
-            <h1 className='mt-2 text-xl font-bold mb-1 tracking-tight text-gray-700'>
+            <h1 className='mt-3 text-xl font-bold mb-1 tracking-tight text-black'>
                 {Translation('categories-empty-title')}
             </h1>
 
-            <p className='text-gray-500 text-md text-[14px] w-[60%] text-center'>
+            <p className='text-gray-700 text-[14.5px] text-md mt-2 w-[60%] text-center'>
                 {Translation('categories-empty-description')}
             </p>
         </div>

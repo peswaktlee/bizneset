@@ -4,9 +4,8 @@ import { useEffect, useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { ConfirmationState } from '@/data/states'
 import { Translation } from '@/helpers/generals'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Button } from '@/ui/views'
-// import { InfoCircleIcon } from '@/ui/icons'
+import { InfoIcon, XIcon } from '@/ui/icons'
 import { BUTTON_TYPES } from '@/data/constants'
 
 const Confirmation: FC = (): ReactNode => {
@@ -86,23 +85,23 @@ const Confirmation: FC = (): ReactNode => {
     if (Open) return (
         <div onClick={Close} className='select-none fixed top-0 left-0 bg-[#181818b5] right-0  overflow-y-auto md:inset-0 h-full flex justify-center items-center z-[99999999]'>
             <div className='relative w-full max-w-md max-h-full'>
-                <div onClick={(e) => e.stopPropagation()} className='relative bg-white rounded-2xl shadow'>
+                <div onClick={(e) => e.stopPropagation()} className='relative bg-white rounded-3xl shadow-md'>
                     <Button
                         type={BUTTON_TYPES.SECONDARY}
                         onClick={Close}
-                        className='absolute w-auto top-3 right-2.5 text-sm p-[5px] ml-auto inline-flex'
-                        icon={<XMarkIcon className='w-4 h-4 text-gray-600' />}
+                        className='absolute h-auto w-auto top-3 right-2.5 text-sm p-[5px] ml-auto inline-flex'
+                        icon={<XIcon className='w-4 h-4 text-gray-600' />}
                     />
 
                     <div className='p-6 pb-4 text-center'>
                         <div className='w-full flex justify-center items-center align-middle'>
-                            {/* <InfoCircleIcon className='w-8 h-8' /> */}
+                            <InfoIcon className='w-8 h-8' />
                         </div>
 
-                        <h3 className='mb-5 mt-2 text-md font-bold text-xl text-gray-600'>
+                        <h3 className='mb-5 mt-2 text-lg font-medium'>
                             {Title}
                         </h3>
-
+                        
                         <section className='w-full mt-8 flex justify-end gap-2 items-center'>
                             <Button type={BUTTON_TYPES.SECONDARY} onClick={Close}>
                                 {Translation('cancel')}

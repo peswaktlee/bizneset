@@ -1,15 +1,21 @@
 import type { FC, ReactNode } from 'react'
 
 import { NormalLayout } from '@/ui/layouts'
-import { Categories, Businesses as BusinessList } from '@/ui/views'
+import { Categories, Businesses as BusinessList, Hero, Footer } from '@/ui/views'
 
-const BusinessesComponent: FC = (): ReactNode => {
+const Businesses: FC = (): ReactNode => {
     return (
         <NormalLayout>
-            <Categories />
-            <BusinessList />
+            <Hero />
+
+            <div className='w-full h-auto max-w-6xl mx-auto'>
+                <Categories />
+                <BusinessList />
+            </div>
+
+            <Footer />
         </NormalLayout>
     )
 }
 
-export default BusinessesComponent
+export default Businesses

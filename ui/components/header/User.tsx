@@ -21,6 +21,7 @@ const User: FC = (): ReactNode => {
     )
 
     return (
+        // @ts-ignore
         <div ref={OutsideElementClick(() => SetAuthState({ UserModal: false }))} className='select-none flex items-center relative'>
             <UserSkeleton />
             <UserAuth />

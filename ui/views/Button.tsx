@@ -25,9 +25,9 @@ const Button: FC<ButtonComponentProps> = (props): ReactNode => {
     } = props
 
     const HandleButtonClass = () => {
-        let className = 'py-[5px] flex items-center justify-center font-medium gap-1.5 text-[14px] px-2.5 rounded-md focus:ring-2 focus:ring-[#B5D4FF] focus:border-white focus:border-none border-0 focus:ring-offset-1 focus:outline-none outline-none transition-all ease-in-out duration-500'
+        let className = ' h-full flex gap-2 items-center rounded-full p-2 px-3 transition-bg duration-300 ease-in-out py-[5px] font-medium text-md focus:ring-2 focus:ring-[#B5D4FF] focus:border-white focus:border-none border-0 focus:ring-offset-1 focus:outline-none outline-none transition-all'
 
-        if (type === BUTTON_TYPES.PRIMARY) className = className + ' border-[#006BFF] bg-[#006BFF] hover:bg-[#2681ff] hover:border-[#2681ff] text-white focus:ring-[#B5D4FF] focus:border-white'
+        if (type === BUTTON_TYPES.PRIMARY) className = className + ' border-[var(--primary-bg)] bg-[var(--primary-bg)] hover:bg-[var(--primary-bg-hover)] hover:border-[var(--primary-bg-hover)] text-white focus:ring-[#B5D4FF] focus:border-white'
         if (type === BUTTON_TYPES.SECONDARY) className = className + ' text-gray-500 bg-gray-50 hover:bg-gray-100'
         if (type === BUTTON_TYPES.ACTION) className = className + ' bg-white w-auto shadow-md text-[12px] text-black border border-gray-50 hover:bg-[#f7f7f7]'
 

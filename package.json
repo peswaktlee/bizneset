@@ -1,6 +1,6 @@
 {
   "name": "bizneset-www",
-  "version": "0.0.7",
+  "version": "0.0.11",
   "private": true,
   "scripts": {
     "www:dev": "npm run www:check && env-cmd -f .env.dev next dev --port 4400",
@@ -15,7 +15,6 @@
     "www:check": "npm run www:lint && npm run www:tsc"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
     "clsx": "^2.1.1",
     "firebase": "^10.7.1",
     "moment-timezone": "^0.5.45",

@@ -1,12 +1,18 @@
 import type { FC, ReactNode } from 'react'
 
 import { useShallow } from 'zustand/react/shallow'
+import { useImage, usePath } from '@/hooks'
 import { AuthState } from '@/data/states'
 import { Button } from '@/ui/views'
-import { ImageOnDrag, ImageOnError } from '@/helpers/events'
-import { UserIcon } from '@heroicons/react/24/outline'
+import { ImageOnDrag } from '@/helpers/events'
+import { AddIcon, UserIcon } from '@/ui/icons'
+import { Translation } from '@/helpers/generals'
+import { Link, PATHS } from '@/data/constants'
 
 const UserProfile: FC = (): ReactNode => {
+    const path = usePath()
+    const isAdd = path === PATHS.ADD_BUSINESS
+
     const {
         User,
         Loading,
@@ -27,36 +33,54 @@ const UserProfile: FC = (): ReactNode => {
         SetAuthState({ UserModal: !UserModal })
     }
 
+    const {
+        isEmpty,
+        loading,
+        error,
+        setLoading,
+        setError
+    } = useImage(User ? User?.Avatar : null)
+
+    const styles = {
+        overflow: 'hidden',
+        display: (!loading && !error && !isEmpty) ? 'block' : 'none'
+    }
+
     if (User && !Loading) return (
-        <div className='w-full flex items-center'>
-            <div className='py-3 px-4 flex justify-end items-end flex-col'>
-                <span className='block text-sm font-semibold text-gray-800'>
-                    {User?.Name?.trim()?.length > 32 ? `${User?.Name?.slice(0, 20)?.trim()}...` : User?.Name}
-                </span>
-
-                <div className='flex justify-end mt-0.5'>
-                    <span className='text-[11px] text-gray-500 bg-gray-50 p-.5 px-2 rounded-full truncate align-end flex justify-end'>
-                        {User?.Email}
-                    </span>
-                </div>
-            </div>
-
-            <Button
-                type='secondary'
-                onClick={HandleUserModal}
-                className='p-1.5 border border-gray-200 relative text-sm w-10 h-10 rounded-xl md:mr-0'
-                icon={<UserIcon className='w-7 h-7 text-gray-500' />}
+        <div className='w-full flex items-center z-10'>
+            <Link 
+                href={PATHS.ADD_BUSINESS} 
+                className='flex items-center bg-gray-50/10 rounded-full mr-2 pl-1.5 pr-3 gap-1.5 hover:bg-gray-50/15 transition-bg ease-in-out duration-300'
             >
-                <img
-                    className='w-full h-full p-[2px] rounded-xl absolute top-0 left-0 object-cover bottom-0 right-0 z-10'
-                    src={User?.Avatar}
-                    alt={User?.Name}
-                    onError={ImageOnError}
-                    onDragStart={ImageOnDrag}
-                />
-            </Button>
+                <AddIcon className='text-white' />
 
-            <div className='p-2' />
+                <p className='text-white font-medium text-sm'>
+                    {Translation('add-your-business')}
+                </p>
+            </Link>
+
+            {
+                !isAdd &&
+                <Button
+                    type='secondary'
+                    onClick={HandleUserModal}
+                    className='relative text-sm flex items-center justify-center p-0 w-9 h-9 rounded-full bg-gray-50'
+                    icon={<UserIcon width='18px' height='18px' className='text-gray-500' />}
+                >
+                    <img
+                        style={styles}
+                        className='w-full h-full p-[1px] rounded-full absolute top-0 left-0 object-cover bottom-0 right-0 z-10'
+                        src={User?.Avatar || ''}
+                        onLoad={() => setLoading(false)}
+                        alt={User?.Name || Translation('user-avatar')}
+                        onDragStart={ImageOnDrag}
+                        onError={() => {
+                            setError(true)
+                            setLoading(false)
+                        }}
+                    />
+                </Button>
+            }
         </div>
     )
 }

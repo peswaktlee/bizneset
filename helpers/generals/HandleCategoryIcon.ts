@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import type { FC, SVGProps } from 'react'
 import { CATEGORIES_PATHS } from '@/data/constants'
 
 import { 
@@ -17,7 +17,7 @@ import {
     BuildingsIcon
 } from '@/ui/icons'
 
-const HandleCategoryIcon = (slug: string): FC => {
+const HandleCategoryIcon = (slug: string): FC<SVGProps<SVGSVGElement>> => {
     if (slug === CATEGORIES_PATHS.ALL) return AllIcon
     if (slug === CATEGORIES_PATHS.TECH) return TechIcon
     if (slug === CATEGORIES_PATHS.FOOD) return FoodIcon
