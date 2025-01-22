@@ -15,10 +15,10 @@ const useScrollPosition = () => {
         const scrollX = window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft
         const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop
 
-        SetAppState({
-            ScrollPosition: scrollY,
-            FixedHeader: scrollY > 0
-        })
+        // SetAppState({
+        //     ScrollPosition: scrollY,
+        //     FixedHeader: scrollY > 0
+        // })
     }
 
     useEffect(() => {

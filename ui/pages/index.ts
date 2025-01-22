@@ -7,6 +7,7 @@ import Privacy from '@/ui/pages/Privacy'
 import UserSaves from '@/ui/pages/UserSaves'
 import Terms from '@/ui/pages/Terms'
 import UserBusinesses from '@/ui/pages/UserBusinesses'
+import AddBusiness from '@/ui/pages/AddBusiness'
 
 export {
     Account,
@@ -17,5 +18,6 @@ export {
     Privacy,
     UserSaves,
     Terms,
-    UserBusinesses
+    UserBusinesses,
+    AddBusiness
 }

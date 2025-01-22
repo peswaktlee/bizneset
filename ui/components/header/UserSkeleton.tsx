@@ -15,17 +15,9 @@ const UserSkeleton: FC = (): ReactNode => {
     )
 
     if (Auth === null || Loading || SmallLoading) return (
-        <div className='w-full flex justify-between my-2'>
-            <div className='flex flex-col'>
-                <div className='bg-gray-200 animate-pulse w-32 h-4 rounded-full mt-2' />
-                <div className='flex justify-end'>
-                    <div className='bg-gray-100 animate-pulse w-20 h-3 rounded-full mt-2' />
-                </div>
-            </div>
-
-            <div className='flex flex-col ml-2'>
-                <div className='bg-gray-100 animate-pulse w-10 h-10 rounded-xl mt-2' />
-            </div>
+        <div className='w-full gap-2 flex items-center'>
+            <div className='bg-gray-100 animate-pulse w-20 h-5 rounded-full' />
+            <div className='bg-gray-100 animate-pulse w-9 h-9 rounded-full' />
         </div>
     )
 }
