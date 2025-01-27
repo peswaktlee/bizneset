@@ -3,6 +3,7 @@ import { NotificationState, AuthState } from '@/data/states'
 import { Console } from '@/helpers/debug'
 import { Translation } from '@/helpers/generals'
 import { ENDPOINTS, METHODS } from '@/data/constants'
+import { NotificationBooleanValidation, UserNameValidation, UserSurnameValidation } from '@/helpers/validations'
 
 const HandleUpdateUser = async () => {
     const { Notification } = NotificationState.getState()
@@ -14,6 +15,15 @@ const HandleUpdateUser = async () => {
         UserForm 
     } = AuthState.getState()
 
+    const nameValidation = UserNameValidation(UserForm?.Name)
+    const surnameValidation = UserSurnameValidation(UserForm?.Surname)
+    const notificationOnSubmitValidation = NotificationBooleanValidation(UserForm?.OnBusinessStatuses)
+
+    const isError =
+        nameValidation.error ||
+        surnameValidation.error ||
+        notificationOnSubmitValidation.error
+
     if (User && !UpdatingUser && UserForm) {
         SetAuthState({ UpdatingUser: true })
 
@@ -24,7 +34,7 @@ const HandleUpdateUser = async () => {
                 body: {
                     name: UserForm?.Name,
                     surname: UserForm?.Surname,
-                    email: UserForm?.Email
+                    onBusinessStatuses: UserForm?.OnBusinessStatuses
                 }
             })
 
@@ -38,7 +48,10 @@ const HandleUpdateUser = async () => {
                         ...User,
                         Name: UserForm?.Name,
                         Surname: UserForm?.Surname,
-                        Email: UserForm?.Email
+                        Notifications: {
+                            ...User?.Notifications,
+                            OnBusinessStatuses: UserForm?.OnBusinessStatuses
+                        }
                     },
                     UserForm: UserForm
                 })

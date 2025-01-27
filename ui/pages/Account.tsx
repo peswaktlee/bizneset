@@ -29,7 +29,8 @@ const Account: FC = (): ReactNode => {
                 Surname: User.Surname || '',
                 Email: User.Email,
                 Country: User.Country?._id || null,
-                City: User.City?._id || null
+                City: User.City?._id || null,
+                OnBusinessStatuses: false
             }
 
             const formErrors = {
@@ -37,7 +38,8 @@ const Account: FC = (): ReactNode => {
                 Surname: false,
                 Email: false,
                 Country: false,
-                City: false
+                City: false,
+                OnBusinessStatuses: false
             }
 
             SetAuthState({

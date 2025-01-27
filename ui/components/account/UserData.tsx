@@ -4,39 +4,11 @@ import type { UserFormInterface } from '@/ts'
 import { Fragment } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { Translation } from '@/helpers/generals'
-import { Input, Select } from '@/ui/views'
-import { AuthState, CitiesState, CountriesState } from '@/data/states'
-
-import { 
-    CityValidation, 
-    CountryValidation, 
-    StringValidation, 
-    EmailValidation 
-} from '@/helpers/validations'
+import { Input } from '@/ui/views'
+import { AuthState } from '@/data/states'
+import { StringValidation, EmailValidation } from '@/helpers/validations'
 
 const UserData: FC = (): ReactNode => {
-    const { Cities, Loading: CitiesLoading } = CitiesState(
-        useShallow(
-            state => {
-                return {
-                    Cities: state.Cities,
-                    Loading: state.Loading
-                }
-            }
-        )
-    )
-
-    const { Countries, Loading: CountriesLoading } = CountriesState(
-        useShallow(
-            state => {
-                return {
-                    Countries: state.Countries,
-                    Loading: state.Loading
-                }
-            }
-        )
-    )
-
     const { 
         UserForm, 
         UserFormErrors,
@@ -61,12 +33,13 @@ const UserData: FC = (): ReactNode => {
         const form = UserForm 
         const formErros = UserFormErrors
 
+        // @ts-ignore
         form[target] = newValue
         formErros[target] = true
 
         SetAuthState({ 
-            UserForm: form,
-            UserFormErrors: formErros
+            UserForm: { ...form },
+            UserFormErrors: { ...formErros }
         })
     }
 
@@ -126,38 +99,6 @@ const UserData: FC = (): ReactNode => {
                         disabled={true}
                         isError={EmailValidation(UserForm?.Email)}
                     />
-
-                    <div className='mt-0 flex-row gap-5'>
-                        <Select
-                            id='country'
-                            idAccessor='_id'
-                            valueAccessor='Name'
-                            label={Translation('country')}
-                            placeholder={Translation('country')}
-                            required={true}
-                            value={UserForm?.City || ''}
-                            showError={false}
-                            validationFunction={CountryValidation}
-                            list={Array.isArray(Countries) ? Countries : []}
-                            disabled={UpdatingUser || ClosingAccount || CountriesLoading}
-                            onChange={(id: string) => HandleInputs(id, 'City')}
-                        />
-
-                        <Select
-                            id='city'
-                            idAccessor='_id'
-                            valueAccessor='Name'
-                            label={Translation('city')}
-                            placeholder={Translation('city')}
-                            required={true}
-                            value={UserForm?.Country || ''}
-                            showError={false}
-                            validationFunction={CityValidation}
-                            list={Array.isArray(Cities) ? Cities : []}
-                            disabled={UpdatingUser || ClosingAccount || CitiesLoading}
-                            onChange={(id: string) => HandleInputs(id, 'City')}
-                        />
-                    </div>
                 </div>
             </div>
         </Fragment>

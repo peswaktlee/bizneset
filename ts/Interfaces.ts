@@ -14,6 +14,9 @@ export interface UserInterface {
     Businesses: number
     Country: CountryInterface | null
     City: CityInterface | null
+    Notifications: {
+        OnBusinessStatuses: boolean
+    }
     Last_Active_At: Date
     Created_At: Date
     Updated_At: Date | null
@@ -195,6 +198,7 @@ export interface UserFormInterface {
     Email: string 
     City: string | null
     Country: string | null
+    OnBusinessStatuses: boolean
 }
 
 export interface UserFormErrors {
@@ -203,6 +207,7 @@ export interface UserFormErrors {
     Email: boolean
     City: boolean
     Country: boolean
+    OnBusinessStatuses: boolean
 }
 
 export interface HoursInterface {

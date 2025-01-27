@@ -17,35 +17,30 @@ const Notification: FC = (): ReactNode => {
 
     const HandleColors = (type: NotificationTypes): HandleColorsFunctionsReturnTypes => {
         if (type === NOTIFICATION_TYPES.ERROR) return {
-            bg: '#D58888',
-            color: '#FFFFFF'
+            color: '#D58888'
         }
 
         if (type === NOTIFICATION_TYPES.SUCCESS) return {
-            bg: '#52BD9A',
-            color: '#FFFFFF'
+            color: '#52BD9A'
         }
 
         if (type === NOTIFICATION_TYPES.WARNING) return {
-            bg: '#F9C315',
-            color: '#FFFFFF'
+            color: '#F9C315'
         }
 
         if (type === NOTIFICATION_TYPES.INFO) return {
-            bg: '#91B8F3',
-            color: '#FFFFFF'
+            color: '#91B8F3'
         }
 
         else return {
-            bg: '#C9CDD5',
-            color: '#FFFFFF'
+            color: '#C9CDD5'
         }
     }
 
     const HandleIcon = (type: NotificationTypes, color: string): ReactNode => {
-        if (type === NOTIFICATION_TYPES.ERROR) return <ErrorIcon color={color} className='w-[18px] h-[18px]' />
-        if (type === NOTIFICATION_TYPES.SUCCESS) return <SuccessIcon color={color} className='w-[18px] h-[18px]' />
-        if (type === NOTIFICATION_TYPES.WARNING) return <WarningIcon color={color} className='w-[18px] h-[18px]' />
+        if (type === NOTIFICATION_TYPES.ERROR) return <ErrorIcon color={color} className='w-[22px] h-[22px]' />
+        if (type === NOTIFICATION_TYPES.SUCCESS) return <SuccessIcon color={color} className='w-[22px] h-[22px]' />
+        if (type === NOTIFICATION_TYPES.WARNING) return <WarningIcon color={color} className='w-[22px] h-[22px]' />
         else return <InfoIcon color={color} className='w-[18px] h-[18px]' />
     }
 
@@ -59,14 +54,11 @@ const Notification: FC = (): ReactNode => {
                     Type
                 } = notification
 
-                const { 
-                    bg, 
-                    color 
-                } = HandleColors(Type)
+                const { color } = HandleColors(Type)
 
                 return (
-                    <div key={Id} className='flex border-gray-50 border-opacity-20 shadow-sm border items-center w-full max-w-md py-2 px-3 text-gray-500 bg-white/10 backdrop-blur-sm rounded-2xl'>
-                        <div style={{ background: bg, color: color }} className={`gap-1 items-center flex justify-between rounded-full ${Count > 1 ? 'px-2 py-[3px]' : 'py-[3px] px-[4px]'}`}>
+                    <div key={Id} className='flex border-gray-50 border-opacity-20 shadow-sm border items-center w-full max-w-md py-2 px-3 bg-white rounded-xl'>
+                        <div className={`gap-1 items-center flex justify-between rounded-full ${Count > 1 ? 'px-2 py-[3px]' : 'py-[3px] px-[4px]'}`}>
                             {HandleIcon(Type, color)}
 
                             {
@@ -77,7 +69,7 @@ const Notification: FC = (): ReactNode => {
                             }
                         </div>
                         
-                        <div className='ps-3 text-[13px] font-bold text-white'>
+                        <div className='ps-3 text-[13px] font-bold text-gray-600'>
                             {Title}
                         </div>
                     </div>

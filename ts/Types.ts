@@ -112,7 +112,6 @@ export type LoadingReference = {
 }
 
 export type HandleColorsFunctionsReturnTypes = {
-    bg: string
     color: string
 }
 

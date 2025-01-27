@@ -22,10 +22,9 @@ const UserDataButtons: FC = (): ReactNode => {
                 className={`${UpdatingUser? 'opacity-50 cursor-not-allowed ' : ''}`}
                 onClick={() => HandleUpdateUser()}
                 disabled={UpdatingUser}
+                loading={UpdatingUser}
+                icon={UpdatingUser ? <LoadingIcon className='w-5 h-5' /> : <SuccessIcon strokeWidth={2} className='w-5 h-5' />}
             >
-                {UpdatingUser && <LoadingIcon className='w-5 h-5' />}
-                {!UpdatingUser && <SuccessIcon strokeWidth={2} className='w-5 h-5' />}
-
                 {Translation('save-changes')}
             </Button>
         </div>

@@ -3,6 +3,7 @@ import { CDN_URL } from '@/data/constants'
 
 export const NOTIFICATION_DURATION = 3000
 export const MAX_LINKS = 5
+export const MAX_TERM_LENGTH = 50
 
 export const DEFAULT_AUTH_STATE = {
     Loading: true,
@@ -18,14 +19,16 @@ export const DEFAULT_AUTH_STATE = {
         Surname: '',
         Email: '',
         Country: null,
-        City: null
+        City: null,
+        OnBusinessStatuses: false
     },
     UserFormErrors: {
         Name: false,
         Surname: false,
         Email: false,
         Country: false,
-        City: false
+        City: false,
+        OnBusinessStatuses: false
     }
 }
 
@@ -150,7 +153,7 @@ export const PATHS = {
     CATEGORIES: 'kategoria',
     ADD_BUSINESS: 'shto',
     TERMS: 'kushtet',
-    PRIVACY: 'politika',
+    PRIVACY: 'privatesia',
     USER_BUSINESSES: 'bizneset'
 }
 
