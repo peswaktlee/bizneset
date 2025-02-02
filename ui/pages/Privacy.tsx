@@ -10,41 +10,25 @@ const Privacy: FC = (): ReactNode => {
 
             <div className='max-w-6xl mx-auto mt-24 h-full'>
                 <h1 className='text-4xl mb-4 font-extrabold tracking-tight text-gray-900'>
-                    Kushtet e Shërbimit
+                    Politika e Privatësisë
                 </h1>
 
                 <div className='mt-4 w-full text-m text-gray-700 mb-20'>
                     <p className='mt-4 w-full text-m text-gray-600 mb-4'>
-                        Me përdorimin e platformës automatikisht pajtoheni me këto kushte:
+                        Me përdorimin e platformës automatikisht pajtoheni me këtë mënyrë trajtimi të privatësisë:
                     </p>
 
                     <ul className='list-disc ml-8 w-[60%] lg:w-[60%] 2xl:w-[60%] xl:w-[60%] md:w-[80%] sm:w-[100%]'>
                         <li className='mt-4 w-full text-sm text-gray-600'>
-                            Për të marrur pjesë në marrje të një produkti ju duhet të keni nevoj për
-                            të, dhe kushtimisht mos të shitet diku produkti i njejtë, në përjashtim
-                            nëse dhurrohet diku tjetër për nevojë produkti njejt pa modifikim ose të
-                            ngjajshme.
+                            Ne përdorim Adresen tuaj të Internetit për të servuar produkte në zonën tuaj më të afërt, dhe për informata në krijim të llogarisë për lehtësim të procesit të regjistrimit. (IP nuk ruhet në databazën tonë dhe është anonime plotësishtë.)
                         </li>
 
                         <li className='mt-4 w-full text-sm text-gray-600'>
-                            Llogaritë e krijuara në platformë nuk kan mundësi të fshihen sa i përket
-                            versionit aktual, kurse fshirja e produktëve apo markimi i tyre të
-                            shitura që të mos shfaqen në platformë është e mundur. (Ky kusht do të
-                            ndryshojë në versionet e ardhshme.)
+                            Ne përdorim llogarinë tuaj në Google për identifikm to llogarisë ekzistuese apo për regjistrimin e një llogarie të re në platform. (Asnjë informatë sensitive nuk ben pjesë këtu, dhe ato të nevojshmet si Emri, Mbiemri edhe të ngjajshme ruhet në databazën tonë.)
                         </li>
 
                         <li className='mt-4 w-full text-sm text-gray-600'>
-                            Reptësisht nuk lejohet postimi i produkteve drejtpërdrejt apo që kan
-                            lidhje me: Drogë, Armë, Pornografi, Lojra të Fatit apo Produkte të
-                            dëmshme dhe të ngjajshme si në listën më lartë. Ato janë të dënueshme me
-                            fshirje të të gjithave produkteve në atë llogari.
-                        </li>
-
-                        <li className='mt-4 w-full text-sm text-gray-600'>
-                            Këqpërdorimi si shpërndarja apo përdorimi i të dhënave të përdoruesve në
-                            platformë është i ndaluar dhe i dënueshëm me institucionet përkatëse në
-                            të gjitha suazat, duke përshfirë edhe abuzimin e platformës në të gjitha
-                            kushtet.
+                            Ne nuk i shpërndajmë të dhënat tuaja me asnjë shërbim tjetër përveq asaj tonës, ne respektojm të dhënat e tuaja dhe ato janë të sigurta me ne duke marrë masat e duhura për ti ruajtur ato në mënyrën më të sigurt. Nese keni pyetje tjera për privatësinë tuaj, ju mundeni të na kontaktoni në: selam@peswaktlee.com
                         </li>
                     </ul>
                 </div>

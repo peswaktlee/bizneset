@@ -5,6 +5,7 @@ import AutoIcon from '@/ui/icons/AutoIcon'
 import BookmarkIcon from '@/ui/icons/BookmarkIcon'
 import BugIcon from '@/ui/icons/BugIcon'
 import BuildingsIcon from '@/ui/icons/BuildingsIcon'
+import CheckIcon from '@/ui/icons/CheckIcon'
 import EducationIcon from '@/ui/icons/EducationIcon'
 import FacebookIcon from '@/ui/icons/FacebookIcon'
 import FinanceIcon from '@/ui/icons/FinanceIcon'
@@ -47,6 +48,7 @@ export {
     BookmarkIcon,
     BugIcon,
     BuildingsIcon,
+    CheckIcon,
     EducationIcon,
     FacebookIcon,
     FinanceIcon,

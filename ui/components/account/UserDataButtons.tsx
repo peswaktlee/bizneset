@@ -17,7 +17,7 @@ const UserDataButtons: FC = (): ReactNode => {
     )
 
     return (
-        <div className='flex justify-end mt-4'>
+        <div className='flex justify-end mt-6'>
             <Button
                 className={`${UpdatingUser? 'opacity-50 cursor-not-allowed ' : ''}`}
                 onClick={() => HandleUpdateUser()}

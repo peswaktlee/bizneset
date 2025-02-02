@@ -1,4 +1,4 @@
-import type { LoadingReference } from '@/ts'
+import type { BusinessInterface, LoadingReference } from '@/ts'
 
 import { BusinessState, SimilarBusinessesState } from '@/data/states'
 import { Request } from '@/helpers/http'
@@ -20,8 +20,10 @@ const ListSimilarBusinesses = async (Loading: LoadingReference) => {
             }
         })
 
+        const dataFormatted = data as Array<BusinessInterface>
+
         if (success) SetSimilarBusinessesState({
-            Businesses: data,
+            Businesses: dataFormatted,
             Loading: false,
             Error: false
         })

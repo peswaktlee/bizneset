@@ -1,4 +1,5 @@
 import type { User } from 'firebase/auth'
+import type { UserInterface } from '@/ts'
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { Translation } from '@/helpers/generals'
@@ -40,8 +41,8 @@ const AuthInvoke = async (push: Function) => {
                         message 
                     } = response
     
-                    if (success) SetAuthState({
-                        User: data,
+                    if (success && data) SetAuthState({
+                        User: data as UserInterface,
                         SmallLoading: false,
                         Loading: false
                     })

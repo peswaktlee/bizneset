@@ -1,4 +1,4 @@
-import type { LoadingReference } from '@/ts'
+import type { CategoryInterface, LoadingReference } from '@/ts'
 
 import { Request } from '@/helpers/http'
 import { CategoriesState } from '@/data/states'
@@ -16,9 +16,11 @@ const ListCategories = async (LoadingReference: LoadingReference) => {
                 method: METHODS.POST,
                 path: ENDPOINTS.CATEGORIES.LIST_CATEGORIES
             })
+
+            const formattedData = data as Array<CategoryInterface>
     
-            if (success && data.length > 0) SetCategoriesState({
-                Categories: data,
+            if (success && formattedData.length > 0) SetCategoriesState({
+                Categories: formattedData,
                 Loading: false,
                 Error: false
             })

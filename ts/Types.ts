@@ -214,3 +214,8 @@ export type LinksValidationsTypes = {
     isUsed: boolean
     isValidLink: boolean
 }
+
+export type ListType = {
+    _id: string | null
+    Name: string
+}

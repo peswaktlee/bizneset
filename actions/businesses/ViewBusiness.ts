@@ -1,4 +1,4 @@
-import type { LoadingReference } from '@/ts'
+import type { BusinessInterface, LoadingReference } from '@/ts'
 
 import { BusinessState } from '@/data/states'
 import { Request } from '@/helpers/http'
@@ -31,7 +31,7 @@ const ViewBusiness = async (
 
         if (success) {
             SetBusinessState({
-                Business: data,
+                Business: data as BusinessInterface,
                 Loading: false,
                 Error: false,
                 NotFound: false

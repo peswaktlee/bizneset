@@ -3,11 +3,11 @@ import type { FC, ReactNode } from 'react'
 import { useEffect } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { NormalLayout } from '@/ui/layouts'
-import { SEO } from '@/ui/tools'
 import { Translation } from '@/helpers/generals'
 import { Header } from '@/ui/views'
 import { AuthState, BusinessesFormState } from '@/data/states'
 import { PageHeader } from '@/ui/components/generals'
+import { SEO } from '@/ui/tools'
 
 import { 
     BusinessData, 
@@ -51,6 +51,13 @@ const AddBusiness: FC = (): ReactNode => {
                 Description: '',
                 Locations: [],
                 Links: [],
+                Logo: {
+                    Type: null,
+                    Media: null,
+                    Filename: null,
+                    Size: null
+                },
+                Gallery: [],
                 Address: {
                     Address: '',
                     Website: '',
@@ -63,6 +70,8 @@ const AddBusiness: FC = (): ReactNode => {
                 Title: false,
                 Description: false,
                 Locations: false,
+                Logo: false,
+                Gallery: [],
                 Links: [],
                 Link: '',
                 Address: {
@@ -74,7 +83,7 @@ const AddBusiness: FC = (): ReactNode => {
             }
 
             SetBusinessFormState({
-                // @ts-ignore
+                // @ts-ignorex
                 Form: form,
                 // @ts-ignore
                 FormErrors: formErrors,

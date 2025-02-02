@@ -2,39 +2,43 @@ import type { FC, ReactNode } from 'react'
 
 import { NormalLayout } from '@/ui/layouts'
 import { Translation } from '@/helpers/generals'
-import { Link, PATHS } from '@/data/constants'
+import { LogoIcon } from '@/ui/icons'
+import { Button } from '@/ui/views'
+import { CDN_ASSETS, PATHS } from '@/data/constants'
 
 const NotFound: FC = (): ReactNode => {
     return (
         <NormalLayout>
-            <div className='text-center py-16 h-screen w-full flex items-center justify-center flex-col align-center'>
-                <div className='flex justify-center align-center items-center'>
-                    {/* <lottie-player
-                        src='/json/LottieError.json'
-                        background='transparent'
-                        speed='1'
-                        loop=''
-                        autoplay='true'
-                        style='height: 259px'
-                    ></lottie-player> */}
-                </div>
+            <div className='h-screen bg-[var(--primary-bg)] flex items-center flex-col justify-center overflow-hidden w-full relative z-50'>
+                <div className='w-full h-full bg-[var(--primary-bg)] absolute top-0 left-0 z-10 opacity-90' />
+                
+                <img 
+                    alt={Translation('home-hero')}
+                    src={CDN_ASSETS.HOME_HERO} 
+                    className='w-full h-full object-cover absolute top-0 left-0 z-0' 
+                />
 
-                <div className='w-full flex justify-center items-center flex-col align-center'>
-                    <h1 className='mt-2 text-4xl font-extrabold text-gray-700 tracking-tight sm:text-5xl'>
-                        {Translation('page-not-found-title')}
-                    </h1>
+                <div className='h-full w-full flex items-center justify-center flex-col align-start z-20'>
+                    <div className='max-w-[650px] mb-6 z-1'>
+                        <LogoIcon stroke='white' />
 
-                    <p className='mt-5 text-base w-full lg:w-[50%] xl:w-[50%] md:w-[50%] text-gray-500'>
-                        {Translation('page-not-found-description')}
-                    </p>
-                </div>
-                    
-                <div className='mt-6'>
-                    <Link href={PATHS.HOME}>
-                        <span className='text-base font-medium text-indigo-600 hover:text-indigo-500'>
-                            {Translation('go-back-home')}
-                        </span>
-                    </Link>
+                        <h1 className='text-5xl text-white font-bold mb-1 mt-10'>
+                            {Translation('page-not-found-title')}
+                        </h1>
+
+                        <p className='text-base text-white/90 mt-2'>
+                            {Translation('page-not-found-description')}
+                        </p>
+
+                        <div className='mt-6 flex'>
+                            <Button
+                                href={PATHS.HOME}
+                                className='bg-white text-[var(--primary-bg)] hover:bg-white hover:text-[var(--primary-bg)] hover:opacity-90 transition-all duration-500 ease-in-out'
+                            >
+                                {Translation('go-back-home')}
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </NormalLayout>

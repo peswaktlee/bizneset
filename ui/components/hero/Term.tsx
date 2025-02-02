@@ -6,10 +6,11 @@ import { BusinessesState } from '@/data/states'
 import { MAX_TERM_LENGTH } from '@/data/constants'
 
 const Term: FC = (): ReactNode => {
-    const { Filters } = BusinessesState(
+    const { TempFilters, SetBusinessesState } = BusinessesState(
         useShallow(state => {
             return {
-                Filters: state.Filters
+                TempFilters: state.TempFilters,
+                SetBusinessesState: state.SetBusinessesState
             }
         })
     )
@@ -19,9 +20,9 @@ const Term: FC = (): ReactNode => {
 
         const term = value.length > MAX_TERM_LENGTH ? value.slice(0, MAX_TERM_LENGTH) : value
 
-        BusinessesState.setState({
-            Filters: {
-                ...Filters,
+        SetBusinessesState({
+            TempFilters: {
+                ...TempFilters,
                 Term: term
             }
         })
@@ -35,7 +36,7 @@ const Term: FC = (): ReactNode => {
 
             <input 
                 placeholder={Translation('search-business')}
-                value={Filters?.Term || ''}
+                value={TempFilters?.Term || ''}
                 onChange={HandleChange}
                 max={MAX_TERM_LENGTH}
                 type='text'
@@ -43,7 +44,7 @@ const Term: FC = (): ReactNode => {
                 autoCorrect='off'
                 autoComplete='off'
                 spellCheck='false'
-                className='text-[15px] text-black font-normal mt-1 ml-1 bg-transparent placeholder:text-gray-400'
+                className='text-[15px] text-black font-normal mt-1 ml-1 bg-transparent placeholder:text-gray-400 hover:placeholder:text-gray-500 transition-all ease-in-out duration-500 hover:transition-all hover:ease-in-out hover:duration-500 placeholder:transition-all placeholder:ease-in-out placeholder:duration-500'
             />
         </div>
     )

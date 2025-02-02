@@ -14,7 +14,8 @@ const useBusinesses = () => {
     )
 
     const { 
-        Businesses, 
+        Businesses,
+        Filters, 
         SetBusinessesState, 
         Loading, 
         HasMore 
@@ -22,6 +23,7 @@ const useBusinesses = () => {
         useShallow(state => {
             return {
                 Businesses: state.Businesses,
+                Filters: state.Filters,
                 SetBusinessesState: state.SetBusinessesState,
                 Loading: state.Loading,
                 HasMore: state.HasMore
@@ -63,6 +65,19 @@ const useBusinesses = () => {
 
         // @ts-ignore
     }, [User?._id])
+
+    useEffect(() => {
+        SetBusinessesState({ 
+            Businesses: [],
+            Loading: true,
+            Error: false,
+            HasMore: true
+        })
+
+        ListBusinesses(AbortControllerReference)
+
+        // @ts-ignore
+    }, [Filters])
 
     useEffect(() => {
         SetBusinessesState({ 

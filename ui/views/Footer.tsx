@@ -61,9 +61,9 @@ const Footer: FC = (): ReactNode => {
                                     key={href}
                                     target='_blank'
                                     href={href}
-                                    className='p-1 rounded-full transition-all ease-in-out duration-300 cursor-pointer group'
+                                    className='p-1 rounded-full transition-all ease-in-out duration-500 cursor-pointer group'
                                 >
-                                    <Icon className='text-gray-900 group-hover:text-gray-500 transition-all ease-in-out duration-300' />
+                                    <Icon className='text-gray-900 group-hover:text-gray-500 transition-all ease-in-out duration-500' />
                                 </a>
                             )
                         })

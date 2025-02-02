@@ -1,7 +1,6 @@
 import type { FC, ReactNode } from 'react'
 
 import { 
-    Absolutos, 
     City, 
     Country, 
     Term, 
@@ -12,7 +11,7 @@ const Breakline: FC = (): ReactNode => <div className='mx-4 bg-gray-100 w-[2px] 
 
 const Filters: FC = (): ReactNode => {
     return (
-        <div className='flex bg-white pl-4 pr-2 py-1 rounded-full w-auto items-center shadow-xl'>
+        <div className='flex bg-white pl-4 pr-2 py-1 rounded-full w-auto items-center shadow-xl z-[100]'>
             <Term />
             <Breakline />
             <Country />

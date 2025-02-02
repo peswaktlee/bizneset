@@ -48,7 +48,7 @@ const Category: FC<CategoryInterface & { isActive: boolean }> = (props): ReactNo
                 className={`w-[22px] h-[22px] ${isActive ? 'text-gray-900' : 'text-gray-500 group-hover:text-gray-700'}`} 
             />
            
-            <span className={`text-sm text-nowrap font-medium mt-1 ${isActive ? 'text-gradient' : 'text-gray-500 group-hover:text-gray-700'}`}>
+            <span className={`text-sm text-nowrap pb-0.5 font-medium mt-1 ${isActive ? 'text-gradient' : 'text-gray-500 group-hover:text-gray-700'}`}>
                 {Name}
             </span>
 

@@ -5,13 +5,12 @@ import { Translation } from '@/helpers/generals'
 import { Console } from '@/helpers/debug'
 import { BusinessesFormState } from '@/data/states'
 import { NotificationState, AuthState } from '@/data/states'
+import { Timeout } from '@/helpers/events'
 import { ENDPOINTS, PATHS, METHODS } from '@/data/constants'
-
-// todo: mos e le dy biznese pa me aprovu tjeteren me postu
 
 const SubmitBusiness = async (push: RouterPathFunctionType) => {
     const { Notification } = NotificationState.getState()
-    const { Creating, SetBusinessFormState } = BusinessesFormState.getState()
+    const { Form, Creating, SetBusinessFormState } = BusinessesFormState.getState()
 
     let redirect = false
 
@@ -23,9 +22,15 @@ const SubmitBusiness = async (push: RouterPathFunctionType) => {
                 Creating: true
             })
 
+            await Timeout(1000)
+
             const { success, data, message } = await Request({ 
                 method: METHODS.POST,
-                path: ENDPOINTS.BUSINESSES.SUBMIT
+                path: ENDPOINTS.BUSINESSES.SUBMIT,
+                body: {
+                    title: Form?.Title,
+                    description: Form?.Description
+                }
             })
 
             if (success && data) {

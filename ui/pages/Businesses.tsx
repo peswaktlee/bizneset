@@ -8,7 +8,7 @@ const Businesses: FC = (): ReactNode => {
         <NormalLayout>
             <Hero />
 
-            <div className='w-full h-auto max-w-6xl mx-auto'>
+            <div className='w-full h-auto max-w-6xl mx-auto z-10'>
                 <Categories />
                 <BusinessList />
             </div>

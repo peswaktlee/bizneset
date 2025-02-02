@@ -35,8 +35,6 @@ const BusinessData: FC = (): ReactNode => {
         if (Form && FormErrors && !Loading && !Updating && !Creating) {
             const newValue = typeof e === 'string' ? e : e.target.value
 
-            console.log('newValue', newValue)
-
             const form = Form 
             const formErros = FormErrors
 
@@ -47,8 +45,8 @@ const BusinessData: FC = (): ReactNode => {
             formErros[target] = true
 
             SetBusinessFormState({ 
-                Form: form,
-                FormErrors: formErros
+                Form: { ...form },
+                FormErrors: { ...formErros }
             })
         }
     }

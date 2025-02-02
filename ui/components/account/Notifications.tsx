@@ -45,7 +45,7 @@ const Notifications: FC = (): ReactNode => {
 
     if (User) return (
         <Fragment>
-            <p className='ml-0.5 mb-2 text-[15px] font-bold text-gray-900 mt-8'>
+            <p className='ml-0.5 mb-2 text-[15px] font-bold text-gray-900 mt-6'>
                 {Translation('notifications')}
             </p>
 

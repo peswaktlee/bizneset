@@ -30,7 +30,7 @@ const Account: FC = (): ReactNode => {
                 Email: User.Email,
                 Country: User.Country?._id || null,
                 City: User.City?._id || null,
-                OnBusinessStatuses: false
+                OnBusinessStatuses: User?.Notifications?.OnBusinessStatuses || false
             }
 
             const formErrors = {
@@ -57,8 +57,8 @@ const Account: FC = (): ReactNode => {
 
             <div className='max-w-6xl mx-auto h-auto pb-8'>
                 <UserData />
-                <UserDataButtons />
                 <Notifications />
+                <UserDataButtons />
                 <Danger />
             </div>
         </NormalLayout>

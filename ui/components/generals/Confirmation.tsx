@@ -85,7 +85,7 @@ const Confirmation: FC = (): ReactNode => {
     if (Open) return (
         <div onClick={Close} className='select-none fixed top-0 left-0 bg-[#181818b5] right-0  overflow-y-auto md:inset-0 h-full flex justify-center items-center z-[99999999]'>
             <div className='relative w-full max-w-md max-h-full'>
-                <div onClick={(e) => e.stopPropagation()} className='relative bg-white rounded-3xl shadow-md'>
+                <div onClick={(e) => e.stopPropagation()} className='relative bg-white rounded-2xl shadow-md'>
                     <Button
                         type={BUTTON_TYPES.SECONDARY}
                         onClick={Close}
@@ -98,7 +98,7 @@ const Confirmation: FC = (): ReactNode => {
                             <InfoIcon className='w-8 h-8' />
                         </div>
 
-                        <h3 className='mb-5 mt-2 text-lg font-medium'>
+                        <h3 className='mb-5 mt-2 text-[17px] text-start font-normal'>
                             {Title}
                         </h3>
                         

@@ -1,17 +1,19 @@
-import { UserBusinessesState } from '@/data/states'
+import type { BusinessInterface } from '@/ts'
+
+import { UserSavesState } from '@/data/states'
 import { Request } from '@/helpers/http'
 import { ENDPOINTS, METHODS } from '@/data/constants'
 
 const ListSaves = async (AbortControllerReference: { current: AbortController | null }) => {
-    const { UserBusinesses, SetUserBusinessesState } = UserBusinessesState.getState()
+    const { UserSaves, SetUserSavesState } = UserSavesState.getState()
 
     try {
         if (AbortControllerReference.current) AbortControllerReference.current.abort()
         AbortControllerReference.current = new AbortController()
 
-        SetUserBusinessesState({ Loading: true })
+        SetUserSavesState({ Loading: true })
 
-        let length = UserBusinesses.length
+        let length = UserSaves.length
 
         const { success, data } = await Request({ 
             method: METHODS.POST,
@@ -20,19 +22,24 @@ const ListSaves = async (AbortControllerReference: { current: AbortController | 
             body: { offset: length }
         })
 
-        const count = data?.count
-        const businesses = data?.businesses
+        const dataFormatted = data as { 
+            count: number, 
+            saves: Array<BusinessInterface>
+        }
+
+        const count = dataFormatted?.count
+        const saves = dataFormatted?.saves
 
         if (!AbortControllerReference.current.signal.aborted) {
-            if (success) SetUserBusinessesState({
-                UserBusinesses: [...UserBusinesses, ...businesses],
+            if (success) SetUserSavesState({
+                UserSaves: [...UserSaves, ...saves],
                 Loading: false,
                 Error: false,
-                HasMore: (length + businesses.length) < count
+                HasMore: (length + saves.length) < count
             })
         
-            else SetUserBusinessesState({
-                UserBusinesses: [],
+            else SetUserSavesState({
+                UserSaves: [],
                 Error: true,
                 HasMore: false
             })
@@ -43,8 +50,8 @@ const ListSaves = async (AbortControllerReference: { current: AbortController | 
         // @ts-ignore
         if (error?.message?.includes('aborted')) return
 
-        else SetUserBusinessesState({ 
-            UserBusinesses: [],
+        else SetUserSavesState({ 
+            UserSaves: [],
             Loading: true,
             Error: false,
             HasMore: true

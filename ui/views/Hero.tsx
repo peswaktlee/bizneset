@@ -5,7 +5,7 @@ import { Absolutos, Title, Filters } from '@/ui/components/hero'
 
 const Hero: FC = (): ReactNode => {
     return (
-        <div className='h-[442px] bg-[var(--primary-bg)] w-full flex relative overflow-hidden'>
+        <div className='h-[442px] bg-[var(--primary-bg)] w-full flex relative z-50'>
             <Absolutos />
 
             <div className='max-w-6xl mx-auto relative h-full flex flex-col items-center w-full'>

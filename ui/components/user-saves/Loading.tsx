@@ -22,7 +22,7 @@ const Loading: FC = (): ReactNode => {
     )
 
     if (UserSavesLoading && !Error && UserSaves?.length === 0) return (
-        <div className='w-full h-auto grid grid-cols-4 gap-x-8 gap-y-8'>
+        <div className='w-full h-auto grid grid-cols-4 gap-x-8 gap-y-8 z-1'>
             {GenerateRandomNumberOfBlankArrays(14, 14).map((num: number) => (
                 <Fragment key={num}>
                     <LoadingSkeleton />

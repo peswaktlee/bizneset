@@ -57,19 +57,19 @@ const Notification: FC = (): ReactNode => {
                 const { color } = HandleColors(Type)
 
                 return (
-                    <div key={Id} className='flex border-gray-50 border-opacity-20 shadow-sm border items-center w-full max-w-md py-2 px-3 bg-white rounded-xl'>
-                        <div className={`gap-1 items-center flex justify-between rounded-full ${Count > 1 ? 'px-2 py-[3px]' : 'py-[3px] px-[4px]'}`}>
+                    <div key={Id} className='flex border-gray-50 border-opacity-20 shadow-sm border items-center w-full max-w-md py-1.5 px-2 bg-white rounded-xl'>
+                        <div className={`gap-0.5 items-center flex justify-between rounded-full ${Count > 1 ? 'px-2 py-[3px]' : 'py-[3px] px-[4px]'}`}>
                             {HandleIcon(Type, color)}
 
                             {
                                 Count > 1 &&
-                                <span className='text-[13px] font-medium'>
+                                <span style={{ color }} className='text-[13px] mb-[1.5px] font-medium'>
                                     {Count > 99 ? '99+' : Count}
                                 </span>
                             }
                         </div>
                         
-                        <div className='ps-3 text-[13px] font-bold text-gray-600'>
+                        <div className='ml-1 text-[13px] font-medium text-gray-600'>
                             {Title}
                         </div>
                     </div>

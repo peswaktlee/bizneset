@@ -1,17 +1,27 @@
 import type { FC, ReactNode } from 'react'
 
+import { useRouter } from 'next/router'
 import { useShallow } from 'zustand/react/shallow'
 import { Translation } from '@/helpers/generals'
 import { Button } from '@/ui/views'
-import { AuthState } from '@/data/states'
+import { BusinessesFormState } from '@/data/states'
 import { LoadingIcon, SuccessIcon } from '@/ui/icons'
-import { HandleUpdateUser } from '@/actions/users'
+import { SubmitBusiness } from '@/actions/businesses'
+import { DISABLED_STYLES } from '@/data/constants'
 
 const BusinessDataButtons: FC = (): ReactNode => {
-    const { UpdatingUser } = AuthState(
+    const { push } = useRouter()
+
+    const { 
+        Creating,
+        Loading,
+        Updating
+    } = BusinessesFormState(
         useShallow(state => {
             return {
-                UpdatingUser: state.UpdatingUser
+                Creating: state.Creating,
+                Loading: state.Loading,
+                Updating: state.Updating
             }
         })
     )
@@ -19,14 +29,14 @@ const BusinessDataButtons: FC = (): ReactNode => {
     return (
         <div className='flex justify-end mt-4'>
             <Button
-                className={`${UpdatingUser? 'opacity-50 cursor-not-allowed ' : ''}`}
-                onClick={() => HandleUpdateUser()}
-                disabled={UpdatingUser}
+                onClick={() => SubmitBusiness(push)}
+                disabled={Creating || Loading || Updating }
+                style={Creating || Loading || Updating ? DISABLED_STYLES : {}}
             >
-                {UpdatingUser && <LoadingIcon className='w-5 h-5' />}
-                {!UpdatingUser && <SuccessIcon strokeWidth={2} className='w-5 h-5' />}
+                {Creating && <LoadingIcon className='w-5 h-5' />}
+                {!Creating && <SuccessIcon strokeWidth={2} className='w-5 h-5' />}
 
-                {Translation('save-changes')}
+                {Translation('submit-for-review')}
             </Button>
         </div>
     )

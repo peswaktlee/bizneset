@@ -4,7 +4,8 @@ const OutsideElementClick = (handler: Function) => {
     let refInstance: RefObject<HTMLElement> = useRef(null)
 
     useEffect(() => {
-        let method = (e: any) => !refInstance.current?.contains(e.target) && handler()
+        // @ts-ignore
+        let method = (e: unknown) => !refInstance.current?.contains(e.target) && handler()
         document.addEventListener('mousedown', method)
         
         return () => document.removeEventListener('mousedown', method)

@@ -16,6 +16,7 @@ const BusinessesState = create(
             const BusinessesInitialState: BusinessesStateInterface = {
                 Businesses: DEFAULT_BUSINESSES_STATE.Businesses,
                 Filters: DEFAULT_BUSINESSES_STATE.Filters,
+                TempFilters: DEFAULT_BUSINESSES_STATE.TempFilters,
                 Loading: DEFAULT_BUSINESSES_STATE.Loading,
                 Error: DEFAULT_BUSINESSES_STATE.Error,
                 Reference: DEFAULT_BUSINESSES_STATE.Reference,

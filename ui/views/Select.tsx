@@ -1,5 +1,5 @@
 import type { FC, MouseEvent, ReactNode } from 'react'
-import type { SelectComponentProps, ValidationFunctionObjectReturnTypes } from '@/ts'
+import type { ListType, SelectComponentProps, ValidationFunctionObjectReturnTypes } from '@/ts'
 
 import { useEffect } from 'react'
 import { useOpen } from '@/hooks'
@@ -103,14 +103,16 @@ const Select: FC<SelectComponentProps> = (props): ReactNode => {
                             label === '' && 
                             value?.trim() === '' &&
                             <span>
-                                {list?.find((item: any) => item[idAccessor] === value)?.[valueAccessor]}
+                                {/* @ts-ignore */}
+                                {list?.find((item: ListType) => item[idAccessor] === value)?.[valueAccessor]}
                             </span>
                         }
 
                         { 
                             value?.trim() !== '' &&
                             <span>
-                                {list?.find((item: any) => item[idAccessor] === value)?.[valueAccessor]}
+                                {/* @ts-ignore */}
+                                {list?.find((item: ListType) => item[idAccessor] === value)?.[valueAccessor]}
                             </span>
                         }
                     </div>
@@ -123,25 +125,27 @@ const Select: FC<SelectComponentProps> = (props): ReactNode => {
                     open &&
                     <div className='absolute border h-auto max-h-[224px] overflow-scroll scrollbar-hidden w-full top-12 right-0 rounded-lg border-gray-100 z-50 text-base bg-gray-50 divide-y divide-gray-100'>
                         {
-                            list?.map((item: any) => {
+                            list?.map((item: ListType) => {
                                 const isFirst = list?.indexOf(item) === 0
                                 const isLast = list?.indexOf(item) === list.length - 1
 
                                 return (
                                     <div 
-                                        key={item[idAccessor]} 
+                                        key={item[idAccessor as '_id']} 
                                         className={`text-gray-500 justify-between font-normal cursor-pointer flex items-center py-1.5 px-2 text-[14px] hover:bg-gray-100 transition-all ease-in-out duration-500 ${isLast && isFirst ? 'rounded-md' : isLast && !isFirst ? 'rounded-b-md' : !isLast && isFirst ? 'rounded-t-md' : 'rounded-none'}`}
                                         onClick={(e: MouseEvent<HTMLDivElement>) => {
+                                            {/* @ts-ignore */}
                                             onChange(item[idAccessor], e)
                                             setOpen(false)
                                         }}
                                     >
                                         <span className='flex items-center gap-2'>
+                                            {/* @ts-ignore */}
                                             {item[valueAccessor]}
                                         </span>
 
                                         <span>
-                                            {item[idAccessor] === value && <SuccessIcon strokeWidth={2} className='w-4 h-4 text-gray-400' />}
+                                            {item[idAccessor as '_id'] === value && <SuccessIcon strokeWidth={2} className='w-4 h-4 text-gray-400' />}
                                         </span>
                                     </div>
                                 )

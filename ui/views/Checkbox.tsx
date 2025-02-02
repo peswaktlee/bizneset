@@ -18,7 +18,7 @@ const Checkbox: FC<CheckboxComponentProps> = (props): ReactNode => {
         <div onClick={disabled ? () => {} : onClick} className={Classes('select-none sm:col-span-2', className)} style={disabled ? { opacity: '0.75', pointerEvents: 'none' } : { opacity: '1', pointerEvents: 'auto' }}>
             {
                 label &&
-                <label htmlFor={id} className='select-none block mb-1 text-[13px] font-medium text-gray-500'>
+                <label htmlFor={id} className='select-none block mb-2 text-[13px] font-medium text-gray-500'>
                     {label}
                 </label>
             }

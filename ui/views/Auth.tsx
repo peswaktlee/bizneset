@@ -33,7 +33,7 @@ const Auth: FC = (): ReactNode => {
         <NormalLayout>
             {
                 (User && !Loading) &&
-                <button className='bg-white absolute top-4 right-4 flex items-center gap-1.5 px-2.5 mt-1 py-[7px] rounded-full transition-all hover:opacity-85 duration-300 pointer-events-auto z-[999]' onClick={UserLogout}>
+                <button className='bg-white absolute top-4 right-4 flex items-center gap-1.5 px-2.5 mt-1 py-[7px] rounded-full transition-all hover:opacity-85 duration-500 pointer-events-auto z-[999]' onClick={UserLogout}>
                     <svg width='18' height='18' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path d='M8.78056 4.09961H5.07468C4.51304 4.09961 3.97441 4.32086 3.57728 4.71468C3.18014 5.10851 2.95703 5.64265 2.95703 6.19961V18.7996C2.95703 19.3566 3.18014 19.8907 3.57728 20.2845C3.97441 20.6784 4.51304 20.8996 5.07468 20.8996H8.78056M9.04375 12.4996H21.0438M21.0438 12.4996L16.4586 7.69961M21.0438 12.4996L16.4586 17.2996' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
                     </svg>
@@ -63,7 +63,7 @@ const Auth: FC = (): ReactNode => {
                         {
                             !User &&
                             <button 
-                                className='bg-white flex items-center gap-2.5 pl-2.5 pr-3 py-[7px] rounded-full transition-all hover:opacity-85 duration-300'
+                                className='bg-white flex items-center gap-2.5 pl-2.5 pr-3 py-[7px] rounded-full transition-all hover:opacity-85 duration-500'
                                 onClick={() => (!SmallLoading && !Loading) && AuthInvoke(push)}
                                 style={(SmallLoading || Loading) ? DISABLED_STYLES : {}}
                             >

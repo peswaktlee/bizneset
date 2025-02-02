@@ -4,6 +4,7 @@ import { CDN_URL } from '@/data/constants'
 export const NOTIFICATION_DURATION = 3000
 export const MAX_LINKS = 5
 export const MAX_TERM_LENGTH = 50
+export const MAX_LOGO_SIZE_IN_MB = 32
 
 export const DEFAULT_AUTH_STATE = {
     Loading: true,
@@ -40,8 +41,6 @@ const DEFAULT_BUSINESSES_FILTERS = {
 }
 
 export const DEFAULT_APP_STATE = {
-    FixedHeader: false,
-    ScrollPosition: 0
 }
 
 export const DEFAULT_CATEGORIES_STATE = {
@@ -217,6 +216,7 @@ export const SOCIAL_MEDIA_LINKS = {
 export const DEFAULT_BUSINESSES_STATE = {
     Businesses: [],
     Filters: DEFAULT_BUSINESSES_FILTERS,
+    TempFilters: DEFAULT_BUSINESSES_FILTERS,
     Loading: true,
     Error: false,
     Reference: null,
@@ -293,4 +293,18 @@ export const DEFAULT_BUSINESS_FORM_STATE = {
     NotFound: false,
     Creating: false,
     Updating: false
+}
+
+export const FILE_TYPES = {
+    IMAGE_PNG: 'image/png',
+    IMAGE_WEBP: 'image/webp'
+}
+
+export const FILE_EXTENSION = {
+    PNG: 'png',
+    WEBP: 'webp'
+}
+
+export const CDN_BUCKETS = {
+    AVATARS: 'avatars'
 }

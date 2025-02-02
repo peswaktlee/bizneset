@@ -7,6 +7,8 @@ import LinkWebsiteIcon from '@/ui/components/manage-business/LinkWebsiteIcon'
 import LocationList from '@/ui/components/manage-business/LocationList'
 import Locations from '@/ui/components/manage-business/Locations'
 import NoLocations from '@/ui/components/manage-business/NoLocations'
+import LogoNotUploaded from '@/ui/components/manage-business/LogoNotUploaded'
+import LogoUploaded from '@/ui/components/manage-business/LogoUploaded'
 import Tabs from '@/ui/components/manage-business/Tabs'
 import SelectLocation from '@/ui/components/manage-business/SelectLocation'
 import WorkingHours from '@/ui/components/manage-business/WorkingHours'
@@ -27,6 +29,8 @@ export {
     LocationList,
     Locations,
     NoLocations,
+    LogoUploaded,
+    LogoNotUploaded,
     Tabs,
     SelectLocation,
     WorkingHours,

@@ -28,17 +28,12 @@ const UserAuth: FC = (): ReactNode => {
     if (User === false && !Loading && !SmallLoading) return (
         <div className='w-full flex items-center'>
             <button 
-                className='bg-white flex items-center gap-2.5 pl-2.5 pr-3 py-[7px] rounded-full transition-all hover:opacity-85 duration-300'
+                className='bg-white flex items-center gap-2.5 pl-2.5 pr-3 py-[7px] rounded-full transition-all hover:opacity-85 duration-500'
                 onClick={() => (!SmallLoading && !Loading) && AuthInvoke(push)}
                 style={(SmallLoading || Loading) ? DISABLED_STYLES : {}}
             >
-                {
-                    (SmallLoading || Loading) && <LoadingIcon className='w-[20px] h-[20px] text-black' />
-                }
-
-                {
-                    (!SmallLoading && !Loading) && <GoogleIcon size='20' />
-                }
+                {(SmallLoading || Loading) && <LoadingIcon className='w-[20px] h-[20px] text-black' />}
+                {(!SmallLoading && !Loading) && <GoogleIcon size='20' />}
                                 
                 <b className='font-medium text-sm text-gray-900'>
                     {Translation('auth-with-google')}

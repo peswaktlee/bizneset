@@ -1,9 +1,15 @@
+import type { BusinessInterface } from '@/ts'
+
 import { BusinessesState } from '@/data/states'
 import { Request } from '@/helpers/http'
 import { ENDPOINTS, METHODS } from '@/data/constants'
 
 const ListBusinesses = async (AbortControllerReference: { current: AbortController | null }) => {
-    const { Businesses, SetBusinessesState } = BusinessesState.getState()
+    const { 
+        Businesses, 
+        Filters, 
+        SetBusinessesState 
+    } = BusinessesState.getState()
 
     try {
         if (AbortControllerReference.current) AbortControllerReference.current.abort()
@@ -17,11 +23,22 @@ const ListBusinesses = async (AbortControllerReference: { current: AbortControll
             method: METHODS.POST,
             path: ENDPOINTS.BUSINESSES.LIST,
             signal: AbortControllerReference.current.signal,
-            body: { offset: length }
+            body: { 
+                offset: length,
+                country: Filters?.Country || null,
+                category: Filters?.Category || null,
+                city: Filters?.City || null,
+                term: Filters?.Term || null
+            }
         })
 
-        const count = data?.count
-        const businesses = data?.businesses
+        const dataFormatted = data as { 
+            count: number, 
+            businesses: Array<BusinessInterface>
+        }
+
+        const count = dataFormatted?.count
+        const businesses = dataFormatted?.businesses
 
         if (!AbortControllerReference.current.signal.aborted) {
             if (success) SetBusinessesState({

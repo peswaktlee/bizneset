@@ -17,7 +17,7 @@ const UserBusinesses: FC = (): ReactNode => {
             <Header />
             <PageHeader title='user-saves-title' description='user-saves-description' />
 
-            <div className='max-w-6xl relative mx-auto h-auto pb-8'>
+            <div className='max-w-6xl relative mx-auto h-auto pb-8 z-1'>
                 <List />
                 <Error />
                 <Loading />

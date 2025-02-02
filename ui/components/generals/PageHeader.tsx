@@ -7,7 +7,7 @@ const PageHeader: FC<PageHeaderProps> = (props): ReactNode => {
 
     return (
         <header className='max-w-6xl mx-auto'>
-            <nav className='py-8 mt-14 rounded-lg flex flex-col w-full justify-start items-start'>
+            <nav className='py-8 rounded-lg flex flex-col w-full justify-start items-start'>
                 <h1 className='text-2xl font-bold text-gray-900'>
                     {Translation(title)}
                 </h1>

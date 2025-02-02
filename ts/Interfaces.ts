@@ -46,6 +46,7 @@ export type BusinessesFilters = {
 export interface BusinessesStateInterface {
     Businesses: Array<BusinessInterface>
     Filters: BusinessesFilters
+    TempFilters: BusinessesFilters
     Loading: boolean
     Error: boolean
     Reference: null | string
@@ -54,8 +55,6 @@ export interface BusinessesStateInterface {
 }
 
 export interface AppStateInterface {
-    FixedHeader: boolean
-    ScrollPosition: number
     SetAppState: (payload: Partial<AppStateInterface>) => void
 }
 
@@ -134,7 +133,7 @@ export interface RequestFunctionReturnProps {
     success: boolean
     message: string
     code: number
-    data: any
+    data: unknown
 }
 
 export interface CategoryInterface {
@@ -229,9 +228,21 @@ export interface BusinessLocationInterface {
     Hours: HoursInterface
 }
 
+export type ImageInstanceType = {
+    Position: number
+    Image: string
+}
+
 export interface BusinessFormInterface {
     Title: string
     Description: string
+    Logo: {
+        Type: null | string
+        Filename: null | string
+        Size: null | number
+        Media: Blob | null
+    }
+    Gallery: Array<ImageInstanceType>
     Locations: Array<BusinessLocationInterface>
     Links: Array<string>
     Link: string
@@ -243,6 +254,7 @@ export interface BusinessFormErrors {
     Description: boolean
     Link: boolean
     Links: Array<boolean>
+    Logo: boolean
     Address: {
         Name: boolean
         Address: boolean

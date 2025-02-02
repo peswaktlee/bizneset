@@ -7,17 +7,24 @@ import { NormalLayout } from '@/ui/layouts'
 import { SEO } from '@/ui/tools'
 import { BusinessState } from '@/data/states'
 import { Gallery, GeneralInfo, Locations, SimilarBusinesses } from '@/ui/components/business-page'
+import { NotFound as NotFoundPage } from '@/ui/pages'
 
 const Business: FC = (): ReactNode => {
     useBusiness()
     useSimilarBusinesses()
 
-    const { Business, Loading, Error } = BusinessState(
+    const { 
+        Business, 
+        Loading, 
+        Error, 
+        NotFound 
+    } = BusinessState(
         useShallow(state => {
             return {
                 Business: state.Business,
                 Loading: state.Loading,
-                Error: state.Error
+                Error: state.Error,
+                NotFound: state.NotFound
             }
         })
     )
@@ -26,7 +33,7 @@ const Business: FC = (): ReactNode => {
         return !Loading && !Error && Business
     }, [Loading, Error, Business])
 
-    return (
+    if (!NotFound) return (
         <NormalLayout>
             <SEO title={isCompleted ? Business?.Name : undefined} />
 
@@ -36,6 +43,8 @@ const Business: FC = (): ReactNode => {
             <SimilarBusinesses />
         </NormalLayout>
     )
+
+    else return <NotFoundPage />
 }
 
 export default Business

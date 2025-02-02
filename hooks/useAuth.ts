@@ -1,3 +1,5 @@
+import type { UserInterface } from '@/ts'
+
 import { useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { AuthStateHook, useAuthState } from 'react-firebase-hooks/auth'
@@ -49,8 +51,8 @@ const useAuth = () => {
                     message 
                 } = response
     
-                if (success) SetAuthState({
-                    User: data,
+                if (success && data) SetAuthState({
+                    User: data as UserInterface,
                     Loading: false
                 })
     

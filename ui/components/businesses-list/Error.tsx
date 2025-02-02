@@ -15,7 +15,7 @@ const Error: FC = (): ReactNode => {
     )
 
     if (BusinessesError) return (
-        <div className='w-full h-auto px-4 py-32 place-content-center flex justify-center flex-col items-center align-middle'>
+        <div className='w-full h-auto px-4 py-64 place-content-center flex justify-center flex-col items-center align-middle'>
             <BugIcon className='w-10 h-10 mb-2' />
 
             <h1 className='mt-3 text-xl font-bold mb-1 tracking-tight text-black'>

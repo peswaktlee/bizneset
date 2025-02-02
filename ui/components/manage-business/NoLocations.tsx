@@ -5,7 +5,7 @@ import { useShallow } from 'zustand/react/shallow'
 import { BusinessesFormState } from '@/data/states'
 import { AddIcon, LocationIcon, StoreIcon } from '@/ui/icons'
 import { Button } from '@/ui/views'
-import { BUTTON_TYPES } from '@/data/constants'
+import { BUTTON_TYPES, DISABLED_STYLES } from '@/data/constants'
 
 const NoLocations: FC = (): ReactNode => {
     const { 
@@ -26,7 +26,7 @@ const NoLocations: FC = (): ReactNode => {
         })
     )
 
-    const AddInitalLink = () => {
+    const AddInitialLocation = () => {
         if (Form) {
             const form = Form
             const locations = form.Locations
@@ -52,11 +52,13 @@ const NoLocations: FC = (): ReactNode => {
             <div className='mt-4'>
                 <Button
                     type={BUTTON_TYPES.PRIMARY}
-                    className={`text-[14px] gap-1.5 ${Updating || Creating || Loading ? 'opacity-50 cursor-not-allowed ' : ''}`}
-                    onClick={AddInitalLink}
+                    className='text-[14px] gap-1.5'
+                    onClick={AddInitialLocation}
                     disabled={Updating || Creating || Loading}
+                    style={Updating || Creating || Loading ? DISABLED_STYLES : {}}
                 >
                     <AddIcon className='w-5 h-5' />
+
                     {Translation('add-location-link')}
                 </Button>
             </div>
